@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <el-button type="primary" icon="el-icon-search">搜索</el-button>
+    111
     <div>222</div>
   </div>
 </template>
