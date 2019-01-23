@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
     11111111
-    <router-link to="/list">11</router-link>
+    <router-link to="/list">list</router-link>
+    <router-link to="/detail">detail</router-link>
   </div>
 </template>
 
