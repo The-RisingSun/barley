@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/xxy/Home'
 import HelloWorld from '@/components/HelloWorld'
 import List from '@/components/ljd/List'
+import Chooseseat from '@/components/pk/Chooseseat'
 Vue.use(Router)
 
 export default new Router({
@@ -13,7 +14,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/',
+      path: '/HelloWorld',  /*默认路径是/*/
       name: 'HelloWorld',
       component: HelloWorld
     },
@@ -21,6 +22,11 @@ export default new Router({
       path: '/list',
       name: 'List',
       component: List
+    },
+    {
+      path: '/',  /*默认路径是/Chooseseat*/
+      name: 'Chooseseat',
+      component: Chooseseat
     }
   ]
 })
