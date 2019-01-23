@@ -30,6 +30,7 @@ export default new Router({
       name: 'Chooseseat',
       component: Chooseseat
     },
+    {
       path: '/detail',
       name: 'Detail',
       component: Detail
