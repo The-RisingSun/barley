@@ -13,21 +13,15 @@
     </div>
     <ul class="nav-tab">
       <li>
-        <a href="">
-          1 选择区域
-        </a>
+        1 选择区域
         <i></i>
       </li>
       <li>
-        <a href="">
-          2 选择座位
-        </a>
+        2 选择座位
         <i></i>
       </li>
       <li>
-        <a href="">
-          3 结账付钱
-        </a>
+        3 结账付钱
       </li>
     </ul>
     <div class="seat-wrap">
@@ -40,7 +34,6 @@
 import Headnav from '@/components/ljd/Headnav'
 import Headsearch from '@/components/ljd/Headsearch'
 import Footer from '@/components/ljd/Footer'
-
 export default {
   name: 'Chooseseat',
   components: {
@@ -75,11 +68,8 @@ export default {
         width: 400px;
         text-align: center;
         float: left;
-
-        a {
-          font-size: 18px;
-          color: white;
-        }
+        font-size: 18px;
+        color: white;
       }
 
       li:nth-of-type(1) {

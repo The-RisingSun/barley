@@ -4,6 +4,7 @@ import Home from '@/components/xxy/Home'
 import HelloWorld from '@/components/HelloWorld'
 import List from '@/components/ljd/List'
 import Chooseseat from '@/components/pk/Chooseseat'
+import Orderconfirm from '@/components/pk/Orderconfirm'
 import Detail from '@/components/ljd/Detail'
 
 Vue.use(Router)
@@ -16,7 +17,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/',
+      path: '/HelloWorld',
       name: 'HelloWorld',
       component: HelloWorld
     },
@@ -29,6 +30,11 @@ export default new Router({
       path: '/Chooseseat',
       name: 'Chooseseat',
       component: Chooseseat
+    },
+    {
+      path: '/',
+      name: 'Orderconfirm',
+      component: Orderconfirm
     },
     {
       path: '/detail',
