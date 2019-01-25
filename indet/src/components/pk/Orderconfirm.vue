@@ -23,6 +23,16 @@
         <span>购票人 ：</span>
         <button @click="showpopup">选择购票人</button>
       </div>
+      <div class="buyways">
+        <h3>选择付款方式</h3>
+        <i class="big-circle">
+          <i class="small-circle"></i>
+        </i>
+        <span>网上付款</span>
+      </div>
+      <div class="goodlist">
+        <h3>商品清单</h3>
+      </div>
     </div>
     <!--点击选择购票人弹窗-->
     <div class="buyer-pop-up-wrap" v-if="isshow">
@@ -146,14 +156,9 @@ export default {
         h3 {
           font-size: 16px;
           color: #ff3c1b;
-          border-bottom: 1px solid #ff3c1b;
+          border-bottom: 1px solid #000;
           padding: 8px;
           margin-bottom: 10px;
-        }
-
-        span {
-          font-size: 12px;
-          color: #495060;
         }
 
         button {
@@ -167,6 +172,50 @@ export default {
           &:hover {
             cursor: pointer;
           }
+        }
+      }
+
+      .buyways {
+        margin-top: 30px;
+        overflow: hidden;
+
+        h3 {
+          font-size: 16px;
+          color: #ff3c1b;
+          border-bottom: 1px solid #000;
+          padding: 8px;
+          margin-bottom: 10px;
+        }
+
+        .big-circle {
+          width: 16px;
+          height: 16px;
+          display: block;
+          border-radius: 50%;
+          border: 1px solid #ff3c1b;
+          float: left;
+          margin: 2px 10px 0 0;
+
+          .small-circle {
+            width: 10px;
+            height: 10px;
+            display: block;
+            border-radius: 50%;
+            background: #ff3c1b;
+            margin: 3px 0 0 3px;
+          }
+        }
+      }
+
+      .goodlist {
+        margin-top: 30px;
+
+        h3 {
+          font-size: 16px;
+          color: #ff3c1b;
+          border-bottom: 1px solid #000;
+          padding: 8px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -206,16 +255,19 @@ export default {
             }
           }
         }
-        .newbuyer{
+
+        .newbuyer {
           border-bottom: 1px solid #000;
           padding: 10px;
           text-align: right;
-          button{
+
+          button {
             background: pink;
             color: #fff;
             font-size: 16px;
             padding: 5px 20px;
-            &:hover{
+
+            &:hover {
               cursor: pointer;
             }
           }

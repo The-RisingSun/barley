@@ -25,8 +25,8 @@
       </li>
     </ul>
     <div class="seat-wrap">
-
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -34,6 +34,7 @@
 import Headnav from '@/components/ljd/Headnav'
 import Headsearch from '@/components/ljd/Headsearch'
 import Footer from '@/components/ljd/Footer'
+
 export default {
   name: 'Chooseseat',
   components: {
