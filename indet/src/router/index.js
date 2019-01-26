@@ -6,7 +6,7 @@ import List from '@/components/ljd/List'
 import Chooseseat from '@/components/pk/Chooseseat'
 import Orderconfirm from '@/components/pk/Orderconfirm'
 import Detail from '@/components/ljd/Detail'
-
+import Login from '@/components/wy/Login' // ��¼ҳ��
 Vue.use(Router)
 
 export default new Router({
@@ -20,6 +20,11 @@ export default new Router({
       path: '/HelloWorld',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/list',
