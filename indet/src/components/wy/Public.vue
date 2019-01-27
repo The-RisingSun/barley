@@ -4,7 +4,10 @@
       <img src="https://gw.alicdn.com/tfs/TB1D1QUxjDpK1RjSZFrXXa78VXa-230-104.png" alt="">
       <i></i>
       <!--<slot name="login"></slot>-->
-      <span slot="login">欢迎登陆</span>
+      <slot>
+        <span slot="register">欢迎登陆</span>
+      </slot>
+
     </div>
   </div>
 </template>
@@ -40,9 +43,8 @@ export default {
       display: inline-block;
       height: 88px;
       line-height: 88px;
-      font-size: 22px;
+      font-size: 24px;
       color: #000;
-
     }
   }
 }

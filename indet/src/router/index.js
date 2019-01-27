@@ -7,6 +7,7 @@ import Chooseseat from '@/components/pk/Chooseseat'
 import Orderconfirm from '@/components/pk/Orderconfirm'
 import Detail from '@/components/ljd/Detail'
 import Login from '@/components/wy/Login' // ��¼ҳ��
+import Registered from '@/components/wy/Registered' // 账户注册
 Vue.use(Router)
 
 export default new Router({
@@ -25,6 +26,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/registered',
+      name: 'Registered',
+      component: Registered
     },
     {
       path: '/list',

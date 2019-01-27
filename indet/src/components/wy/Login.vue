@@ -5,43 +5,96 @@
       <img src="https://gw.alicdn.com/tfs/TB1IWIBzAvoK1RjSZFNXXcxMVXa-720-440.png_q75.jpg" alt="">
       <div class="message">
         <ul>
-          <li class="active">账号登录</li>
-          <li>短信快捷登录</li>
+          <li v-for="(item, index) in alisn" :key="index" @click="witch(index)" :class=" {active:index===indet}">
+            {{item}}
+          </li>
         </ul>
-        <div class="center">
-          <form action="">
+        <div>
+          <form class="center" action="">
             <p>
               <span class="fa fa-user"></span>
-              <input type="text" value="">
+              <input v-model="name" @blur="username" type="text" value="">
             </p>
+            <span>{{this.tisi}}</span>
             <p>
               <span class="fa fa-unlock-alt"></span>
-              <input type="text" value="">
+              <input v-model="passWord" @blur="password" type="text" value="">
             </p>
-            <input type="submit" value="登录">
+            <span>{{this.pass}}</span>
+            <input @click="login" type="submit" value="登录">
             <div class="from-bottom">
               <div class="ntxt-time">
-                <span class="bottom-left"><input type="checkbox"></span>
-                下次自动登录
+                <el-checkbox v-model="checked" fill>下次自动登录</el-checkbox>
               </div>
               <span><i>忘记密码?</i>忘记密码</span>
             </div>
             <div class="else">
               <span>其他登录:</span>
-              <a href=""><img src="https://gw.alicdn.com/tfs/TB1TikIsAvoK1RjSZFDXXXY3pXa-230-104.png" alt=""></a>
+              <a href="javascript:;"><span class="fa fa-weixin"></span></a>
             </div>
           </form>
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 <script>
 import Public from './Public'
+import Footer from './Footer'
 export default {
   name: 'Logon',
+  data () {
+    return {
+      alisn: ['账号登录', '短信快捷登录'],
+      name: null,
+      passWord: null,
+      tisi: null,
+      pass: null,
+      checked: true,
+      off: true,
+      indet: 0
+    }
+  },
   components: {
-    Public
+    Public,
+    Footer
+  },
+  methods: {
+    username () {
+      var re = /^1[34578]\d{9}$/
+      if (!re.test(this.name)) {
+        this.tisi = '手机号码有误，请重填'
+      } else {
+        this.tisi = null
+      }
+    },
+    password () {
+      var re = /^[a-zA-Z0-9]{6,22}$/
+      if (!re.test(this.passWord)) {
+        this.pass = '输入密码不符合要求！密码由6-22位数字和英文混合组成'
+      } else {
+        this.pass = null
+      }
+    },
+    witch (en) {
+      this.indet = en
+    },
+    login () {
+      var re = /^1[34578]\d{9}$/
+      var ra = /^[a-zA-Z0-9]{6,22}$/
+      if (!ra.test(this.passWord)) {
+        this.pass = '输入密码不符合要求！密码由6-22位数字和英文混合组成'
+        return false
+      }
+      if (!re.test(this.name)) {
+        this.tisi = '手机号码有误，请重填'
+        return false
+      }
+      if (localStorage.getItem(this.name) === null) {
+        this.$message('没有当前用户请注册')
+      }
+    }
   }
 }
 </script>
@@ -78,6 +131,7 @@ export default {
         margin-right: 4px;
         border-radius: 4px 4px 0  0 ;
         border: 1px solid #dddee1;
+        cursor: pointer;
         &.active{
           color: #ff5235;
           background: #fff;
@@ -87,8 +141,13 @@ export default {
     }
     .center{
       padding: 20px 26px 0;
+      &>span{
+        font-size: 12px;
+        display: inline-block;
+        height: 20px;
+        color: red;
+      }
       p{
-        margin-bottom: 24px;
         height: 34px;
         line-height: 34px;
         border-radius: 4px;
@@ -136,10 +195,17 @@ export default {
               bottom: 0;
               left: 0;
               right: 0;
-              z-index: 1;
+              z-index: 12;
               cursor: pointer;
               opacity: 0;
+              border: none;
             }
+          }
+          label{
+            position: relative;
+            top: -3px;
+            display: inline-block;
+            line-height: 14px;
           }
         }
         span{
@@ -163,7 +229,14 @@ export default {
           display: inline-block;
           width: 24px;
           height: 24px;
+          background: #80a910;
+          text-align: center;
+          border-radius: 12px;
           overflow: hidden;
+          span{
+            font-size: 12px;
+            color: #fff;
+          }
           img{
             width: 24px;
             height: 72px;
