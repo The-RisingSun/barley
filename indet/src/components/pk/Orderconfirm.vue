@@ -32,6 +32,52 @@
       </div>
       <div class="goodlist">
         <h3>商品清单</h3>
+        <ul class="list-title">
+          <li>商品名称</li>
+          <li>座位号</li>
+          <li>价格</li>
+          <li>数量</li>
+          <li>价格小计(元)</li>
+        </ul>
+      </div>
+      <div class="tickets">
+        <h3>我要开发票</h3>
+        <ul class="tickets-way">
+          <li
+            @click="change (i)"
+            v-for="(item, i) in cont"
+            :class="{active:i === index}"
+            :key=i
+          >
+            {{item.title}}
+          </li>
+        </ul>
+        <div v-show="index ===0" class="content company-content">
+          <form action="">
+            <div class="header">
+              <span>公司抬头:</span>
+              <input type="text" placeholder="请输入公司抬头">
+            </div>
+            <div class="number">
+              <span>公司税号:</span>
+              <input type="text" placeholder="请输入公司税号">
+            </div>
+            <button>确认发票信息</button>
+          </form>
+        </div>
+        <div v-show="index ===1" class="content person-content">
+          <form action="">
+            <div class="header">
+              <span>个人抬头:</span>
+              <input type="text" placeholder="请输入个人抬头">
+            </div>
+            <div class="number">
+              <span>个人税号:</span>
+              <input type="text" placeholder="请输入个人税号">
+            </div>
+            <button>确认发票信息</button>
+          </form>
+        </div>
       </div>
     </div>
     <!--点击选择购票人弹窗-->
@@ -62,7 +108,12 @@ export default {
   data () {
     return {
       isshow: false,
-      newshow: false
+      newshow: false,
+      index: 0,
+      cont: [
+        {'title': '公司'},
+        {'title': '个人'}
+      ]
     }
   },
   methods: {
@@ -77,6 +128,9 @@ export default {
     },
     newclosepop () {
       this.newshow = false
+    },
+    change (i) {
+      this.index = i
     }
   },
   components: {
@@ -216,6 +270,134 @@ export default {
           border-bottom: 1px solid #000;
           padding: 8px;
           margin-bottom: 10px;
+        }
+
+        .list-title {
+          overflow: hidden;
+          background: #f8f8f9;
+          border: 1px solid #000;
+
+          li {
+            width: 238px;
+            height: 40px;
+            line-height: 40px;
+            float: left;
+            font-size: 12px;
+            color: #495060;
+            text-indent: 15px;
+            border-right: 1px solid #000;
+          }
+
+          li:last-of-type {
+            border: none;
+          }
+        }
+      }
+
+      .tickets {
+        margin-top: 30px;
+        overflow: hidden;
+
+        h3 {
+          font-size: 16px;
+          color: #ff3c1b;
+          border-bottom: 1px solid #000;
+          padding: 8px;
+          margin-bottom: 10px;
+        }
+
+        .tickets-way {
+          overflow: hidden;
+
+          li {
+            float: left;
+            padding: 10px 15px;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          li.active {
+            color: #ff3c1b;
+            border-bottom: 2px solid #ff3c1b;
+          }
+        }
+
+        .company-content {
+          padding: 25px 15px 30px;
+          border: 1px solid #000;
+
+          span {
+            font-size: 12px;
+            color: #495060;
+          }
+
+          input {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            text-indent: 10px;
+            font-size: 12px;
+            color: #495060;
+            border-radius: 6px;
+          }
+
+          button {
+            font-size: 12px;
+            color: #fff;
+            background: #ff3c1b;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: none;
+            margin-left: 30px;
+          }
+
+          .header {
+            margin-bottom: 30px;
+          }
+
+          .number {
+            margin-bottom: 30px;
+          }
+        }
+
+        .person-content {
+          padding: 25px 15px 30px;
+          border: 1px solid #000;
+
+          span {
+            font-size: 12px;
+            color: #495060;
+          }
+
+          input {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            text-indent: 10px;
+            font-size: 12px;
+            color: #495060;
+            border-radius: 6px;
+          }
+
+          button {
+            font-size: 12px;
+            color: #fff;
+            background: #ff3c1b;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: none;
+            margin-left: 30px;
+          }
+
+          .header {
+            margin-bottom: 30px;
+          }
+
+          .number {
+            margin-bottom: 30px;
+          }
         }
       }
     }
