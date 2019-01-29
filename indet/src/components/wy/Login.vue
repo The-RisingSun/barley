@@ -5,12 +5,12 @@
       <img src="https://gw.alicdn.com/tfs/TB1IWIBzAvoK1RjSZFNXXcxMVXa-720-440.png_q75.jpg" alt="">
       <div class="message">
         <ul>
-          <li v-for="(item, index) in alisn" :key="index" @click="witch(index)" :class=" {active:index===indet}">
+          <li :id="index" v-for="(item, index) in alisn" :key="index" @click="witch(index)" :class=" {active:index===indet}">
             {{item}}
           </li>
         </ul>
-        <div>
-          <form class="center" action="">
+        <div class="smu">
+          <form id="1" class="center" action="">
             <p>
               <span class="fa fa-user"></span>
               <input v-model="name" @blur="username" type="text" value="">
@@ -24,7 +24,7 @@
             <input @click="login" type="submit" value="登录">
             <div class="from-bottom">
               <div class="ntxt-time">
-                <el-checkbox v-model="checked" fill>下次自动登录</el-checkbox>
+                <el-checkbox v-model="checked">下次自动登录</el-checkbox>
               </div>
               <span><i>忘记密码?</i>忘记密码</span>
             </div>
@@ -139,117 +139,119 @@ export default {
         }
       }
     }
-    .center{
-      padding: 20px 26px 0;
-      &>span{
-        font-size: 12px;
-        display: inline-block;
-        height: 20px;
-        color: red;
-      }
-      p{
-        height: 34px;
-        line-height: 34px;
-        border-radius: 4px;
-        border: 1px solid #dddee1;
-        display: flex;
-        overflow: hidden;
-        span{
+    .smu{
+      .center{
+        padding: 20px 26px 0;
+        &>span{
+          font-size: 12px;
           display: inline-block;
-          width: 24px;
+          height: 20px;
+          color: red;
+        }
+        p{
           height: 34px;
           line-height: 34px;
-          text-align: center;
-          background: #eee;
-          border-right: 1px solid #dddee1;
-        }
-        input{
-          text-indent: 6px;
-          height: 32px;
-          width: 380px;
-          border: none;
-        }
-      }
-      .from-bottom{
-        margin-top: 22px;
-        display: flex;
-        justify-content: space-between;
-        .ntxt-time{
-          font-size: 12px;
-          .bottom-left{
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            position: relative;
-            top: 0;
-            left: 0;
-            border: 1px solid #dddee1;
-            border-radius: 2px;
-            background-color: #fff;
-            transition: border-color .2s ease-in-out,background-color .2s ease-in-out;
-            input{
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              z-index: 12;
-              cursor: pointer;
-              opacity: 0;
-              border: none;
-            }
-          }
-          label{
-            position: relative;
-            top: -3px;
-            display: inline-block;
-            line-height: 14px;
-          }
-        }
-        span{
-          font-size: 12px;
-          color: red;
-          i{
-            font-style:normal;
-            padding-right: 6px;
-            color: #000;
-          }
-        }
-      }
-      .else{
-        span{
-          line-height: 16px;
-          font-size: 12px;
-        }
-        a{
-          position: relative;
-          top: 10px;
-          display: inline-block;
-          width: 24px;
-          height: 24px;
-          background: #80a910;
-          text-align: center;
-          border-radius: 12px;
+          border-radius: 4px;
+          border: 1px solid #dddee1;
+          display: flex;
           overflow: hidden;
           span{
-            font-size: 12px;
-            color: #fff;
-          }
-          img{
+            display: inline-block;
             width: 24px;
-            height: 72px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            background: #eee;
+            border-right: 1px solid #dddee1;
+          }
+          input{
+            text-indent: 6px;
+            height: 32px;
+            width: 380px;
+            border: none;
           }
         }
-      }
-      input[type="submit"]{
-        width: 100%;
-        height: 40px;
-        background: #ff3c1b;
-        color: #fff;
-        font-size: 12px;
-        text-align: center;
+        .from-bottom{
+          margin-top: 22px;
+          display: flex;
+          justify-content: space-between;
+          .ntxt-time{
+            font-size: 12px;
+            .bottom-left{
+              display: inline-block;
+              width: 14px;
+              height: 14px;
+              position: relative;
+              top: 0;
+              left: 0;
+              border: 1px solid #dddee1;
+              border-radius: 2px;
+              background-color: #fff;
+              transition: border-color .2s ease-in-out,background-color .2s ease-in-out;
+              input{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 12;
+                cursor: pointer;
+                opacity: 0;
+                border: none;
+              }
+            }
+            label{
+              position: relative;
+              top: -3px;
+              display: inline-block;
+              line-height: 14px;
+            }
+          }
+          span{
+            font-size: 12px;
+            color: red;
+            i{
+              font-style:normal;
+              padding-right: 6px;
+              color: #000;
+            }
+          }
+        }
+        .else{
+          span{
+            line-height: 16px;
+            font-size: 12px;
+          }
+          a{
+            position: relative;
+            top: 10px;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #80a910;
+            text-align: center;
+            border-radius: 12px;
+            overflow: hidden;
+            span{
+              font-size: 12px;
+              color: #fff;
+            }
+            img{
+              width: 24px;
+              height: 72px;
+            }
+          }
+        }
+        input[type="submit"]{
+          width: 100%;
+          height: 40px;
+          background: #ff3c1b;
+          color: #fff;
+          font-size: 12px;
+          text-align: center;
+        }
       }
     }
   }

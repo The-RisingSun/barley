@@ -56,7 +56,8 @@ export default {
       verifyHint: null, // 验证码再次提示
       off: true,
       exchange: '获取验证码',
-      time: 60 // 时间
+      time: 60, // 时间
+      sum: true
     }
   },
   components: {
@@ -68,6 +69,7 @@ export default {
       var re = /^1[34578]\d{9}$/
       if (!re.test(this.name)) {
         this.tisi = '手机号码有误，请重填'
+        this.sum = false
       } else {
         this.tisi = null
       }
@@ -76,6 +78,7 @@ export default {
       var re = /^[a-zA-Z0-9]{6,22}$/
       if (!re.test(this.password)) {
         this.cipher = '输入密码不符合要求！密码由6-22位数字和英文混合组成'
+        this.sum = false
       } else {
         this.cipher = null
       }
@@ -87,15 +90,17 @@ export default {
         this.nocipher = null
       } else {
         this.nocipher = '密码不一致，请确认'
+        this.sum = false
       }
     },
-    login () {
+    login () { // 加入本地存储
       this.anopassword()
       this.apassword()
       this.username()
       this.Hintverify()
-      localStorage.setItem(this.name, this.password)
-      console.log(this.name, this.password)
+      if (this.sum === true) {
+        localStorage.setItem(this.name, this.password)
+      }
     },
     second () { // 验证倒计时
       this.off = false
@@ -116,6 +121,7 @@ export default {
       var re = /^[0-9]{4}$/
       if (!re.test(this.verify)) {
         this.verifyHint = '验证码格式不对'
+        this.sum = false
       } else {
         this.verifyHint = null
       }
