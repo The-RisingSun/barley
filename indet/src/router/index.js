@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/xxy/Home' // 首页
+import Home from '@/components/xxy/Home'
 import HelloWorld from '@/components/HelloWorld'
 import Children from '@/components/xxy/Children' // 儿童亲子
 import Dance from '@/components/xxy/Dance' // 舞蹈芭蕾
@@ -18,7 +18,6 @@ import PersonOrder from '@/components/wy/PersonOrder' // 订单管理
 import PersonInfo from '@/components/wy/PersonInfo' // 个人信息
 import PersonTicket from '@/components/wy/PersonTicket' // 常用购票人
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -50,6 +49,16 @@ export default new Router({
     {
       path: '/dance',
       component: Dance
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/children',
+      name: 'Children',
+      component: Children
     },
     {
       path: '/login',

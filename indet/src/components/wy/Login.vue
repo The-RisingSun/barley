@@ -131,7 +131,6 @@ export default {
         margin-right: 4px;
         border-radius: 4px 4px 0  0 ;
         border: 1px solid #dddee1;
-        cursor: pointer;
         &.active{
           color: #ff5235;
           background: #fff;

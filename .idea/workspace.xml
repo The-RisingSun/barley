@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="c17f48c5-4329-4572-81ff-3025081d5b86" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dearlebron.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
@@ -82,6 +83,10 @@
       <change beforePath="$PROJECT_DIR$/indet/src/components/xxy/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/indet/src/components/xxy/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/indet/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/indet/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/indet/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/indet/src/router/index.js" afterDir="false" />
+=======
+    <list default="true" id="b5050b51-fce4-4b70-bc93-e823450dade3" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/indet/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/indet/src/components/HelloWorld.vue" afterDir="false" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -93,6 +98,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/indet/index.html">
@@ -108,6 +114,14 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="52">
               <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/indet/src/components/xxy/Home.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
             </state>
           </provider>
         </entry>
@@ -115,12 +129,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/indet/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="26">
               <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+=======
+            <state relative-caret-position="234">
+              <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/indet/src/components/xxy/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
@@ -149,12 +169,22 @@
                 <element signature="e#99#147#0" expanded="true" />
                 <element signature="e#386#426#0" expanded="true" />
                 <element signature="e#450#497#0" expanded="true" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/indet/src/router/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/indet/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-157">
@@ -163,28 +193,57 @@
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#140#161#0" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/indet/src/components/xxy/Children.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
   <component name="Git.Settings">
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/indet/src/router/index.js" />
         <option value="$PROJECT_DIR$/indet/src/components/xxy/Banner.vue" />
         <option value="$PROJECT_DIR$/indet/src/main.js" />
         <option value="$PROJECT_DIR$/indet/index.html" />
         <option value="$PROJECT_DIR$/indet/src/App.vue" />
         <option value="$PROJECT_DIR$/indet/src/components/HelloWorld.vue" />
+=======
+        <option value="$PROJECT_DIR$/indet/build/webpack.base.conf.js" />
+        <option value="$PROJECT_DIR$/indet/src/main.js" />
+        <option value="$PROJECT_DIR$/indet/index.html" />
+        <option value="$PROJECT_DIR$/../index/src/views/Issue.vue" />
+        <option value="$PROJECT_DIR$/indet/src/components/HelloWorld.vue" />
+        <option value="$PROJECT_DIR$/indet/src/components/xxy/Children.vue" />
+        <option value="$PROJECT_DIR$/indet/src/router/index.js" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
         <option value="$PROJECT_DIR$/indet/src/components/xxy/Home.vue" />
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="107" />
     <option name="y" value="61" />
@@ -193,6 +252,13 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+=======
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-11" />
+    <option name="y" value="1" />
+    <option name="width" value="1386" />
+    <option name="height" value="788" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -204,6 +270,7 @@
         <subPane>
           <expand>
             <path>
+<<<<<<< HEAD
               <item name="dearlebron" type="b2602c69:ProjectViewProjectNode" />
               <item name="dearlebron" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -230,6 +297,10 @@
               <item name="dearlebron" type="462c0819:PsiDirectoryNode" />
               <item name="indet" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
             </path>
           </expand>
           <select />
@@ -240,6 +311,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -252,6 +324,21 @@
       <recent name="F:\test\dearlebron\indet\src\assets\xxy-img\icon" />
       <recent name="F:\test\dearlebron\indet\src\assets\js" />
       <recent name="F:\test\dearlebron\indet\static" />
+=======
+    <property name="last_opened_file_path" value="D:/Git/Git/cmd/git.exe" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\痕\Desktop\barley\indet\static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\痕\Desktop\barley\indet\static\css" />
+      <recent name="C:\Users\痕\Desktop\barley\indet\src\assets" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
     </key>
   </component>
   <component name="RunDashboard">
@@ -271,16 +358,28 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="c17f48c5-4329-4572-81ff-3025081d5b86" name="Default Changelist" comment="" />
       <created>1548910162443</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548910162443</updated>
       <workItem from="1548910164954" duration="8782000" />
+=======
+      <changelist id="b5050b51-fce4-4b70-bc93-e823450dade3" name="默认更改列表" comment="" />
+      <created>1547711172392</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547711172392</updated>
+      <workItem from="1547711173944" duration="13954000" />
+      <workItem from="1547886337094" duration="1293000" />
+      <workItem from="1547962575048" duration="3319000" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="8782000" />
   </component>
   <component name="ToolWindowManager">
@@ -294,6 +393,16 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.29953918" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
+=======
+    <option name="totallyTimeSpent" value="18566000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-11" y="1" width="1386" height="788" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21735905" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -301,10 +410,18 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+<<<<<<< HEAD
+=======
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2519084" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+<<<<<<< HEAD
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32440478" />
@@ -324,11 +441,14 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
+=======
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/indet/src/store/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -386,10 +506,52 @@
             <element signature="e#99#147#0" expanded="true" />
             <element signature="e#386#426#0" expanded="true" />
             <element signature="e#450#497#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/indet/build/webpack.base.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indet/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json" />
+    <entry file="file://$PROJECT_DIR$/indet/static/font-awesome-4.7.0/css/mixins.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indet/static/css/rest.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../index/src/views/Issue.vue" />
+    <entry file="file://$PROJECT_DIR$/../index/src/store/store.js" />
+    <entry file="file://$PROJECT_DIR$/indet/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indet/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indet/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/indet/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-157">
@@ -419,17 +581,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+=======
+    <entry file="file://$PROJECT_DIR$/indet/src/components/HelloWorld.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indet/src/components/xxy/Children.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indet/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indet/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/indet/src/components/xxy/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="158">
           <caret line="117" column="33" lean-forward="true" selection-start-line="117" selection-start-column="33" selection-end-line="117" selection-end-column="33" />
           <folding>
             <element signature="n#aside#0;n#div#0;n#template#0;n#!!top" />
             <element signature="e#9996#10025#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="156">
+          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+>>>>>>> 87b991c514c6221680520c55626732351ce45e2d
         </state>
       </provider>
     </entry>
