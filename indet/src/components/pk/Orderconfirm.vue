@@ -79,32 +79,6 @@
           </form>
         </div>
       </div>
-      <div class="insurance">
-        <div class="check-wrap">
-          <div class="check" @click="checkbtn">
-            <i class="fa fa-check" aria-hidden="true" v-show="checkif"></i>
-          </div>
-          <p>购买"安心订票保险"，本单保费金额：<strong>20.00</strong>元</p>
-        </div>
-        <p class="insurance-detail">查看<span>保险服务说明</span>和<span>《安心订票保险条款》</span></p>
-        <p>购买保险，请填写真实姓名</p>
-        <p class="good-num">商品金额：<span>￥180</span></p>
-        <p class="good-insurance">商品保险：    +<span>￥20.00</span></p>
-      </div>
-      <div class="payment">
-        <p class="pay-num">
-          待支付总额：
-          <span>￥2.00</span>
-        </p>
-        <div class="pay-wrap">
-          <div class="pay" @click="paybtn">
-            <i class="fa fa-check" aria-hidden="true" v-show="payif"></i>
-          </div>
-          <p class="pay-detail">我已阅读并同意<strong>"订购服务条款"</strong><strong>"退换货约定"</strong><strong>"退款约定"</strong></p>
-          <p>同意"票品为不记名凭证，请您妥善保管，遗失不补"</p>
-          <button>同意以上协议并提交订单</button>
-        </div>
-      </div>
     </div>
     <!--点击选择购票人弹窗-->
     <div class="buyer-pop-up-wrap" v-if="isshow">

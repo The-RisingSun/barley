@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/xxy/Home'
+import Home from '@/components/xxy/Home' // 首页
 import HelloWorld from '@/components/HelloWorld'
+import Children from '@/components/xxy/Children' // 儿童亲子
+import Dance from '@/components/xxy/Dance' // 舞蹈芭蕾
+import Drama from '@/components/xxy/Drama'// 戏剧话剧
+import Rock from '@/components/xxy/Rock'// 摇滚音乐
+import Sports from '@/components/xxy/Sports'// 体育活动
 import List from '@/components/ljd/List'
 import Chooseseat from '@/components/pk/Chooseseat'
 import Orderconfirm from '@/components/pk/Orderconfirm'
@@ -25,6 +30,26 @@ export default new Router({
       path: '/HelloWorld',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/drama',
+      component: Drama
+    },
+    {
+      path: '/sports',
+      component: Sports
+    },
+    {
+      path: '/children',
+      component: Children
+    },
+    {
+      path: '/rock',
+      component: Rock
+    },
+    {
+      path: '/dance',
+      component: Dance
     },
     {
       path: '/login',
