@@ -10,6 +10,7 @@ import Sports from '@/components/xxy/Sports'// 体育活动
 import List from '@/components/ljd/List'
 import Chooseseat from '@/components/pk/Chooseseat'
 import Orderconfirm from '@/components/pk/Orderconfirm'
+import Payorder from '@/components/pk/Payorder'
 import Detail from '@/components/ljd/Detail'
 import Login from '@/components/wy/Login' // ��¼ҳ��
 import Registered from '@/components/wy/Registered' // 账户注册
@@ -101,9 +102,14 @@ export default new Router({
       component: Chooseseat
     },
     {
-      path: '/',
+      path: '/Orderconfirm',
       name: 'Orderconfirm',
       component: Orderconfirm
+    },
+    {
+      path: '/',
+      name: 'Payorder',
+      component: Payorder
     },
     {
       path: '/detail',
