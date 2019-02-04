@@ -1,0 +1,9 @@
+diff a/indet/index.html b/indet/index.html	(rejected hunks)
+@@ -9,6 +9,7 @@
+     <link rel="stylesheet" href="static/css/rest.css">
+     <link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.css">
+     <!-- 引入样式 -->
++    <link href="static/css/rest.css" rel="stylesheet">
+     <link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+   </head>

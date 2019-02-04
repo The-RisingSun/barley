@@ -89,7 +89,7 @@
         <p class="insurance-detail">查看<span>保险服务说明</span>和<span>《安心订票保险条款》</span></p>
         <p>购买保险，请填写真实姓名</p>
         <p class="good-num">商品金额：<span>￥180</span></p>
-        <p class="good-insurance">商品保险：    +<span>￥20.00</span></p>
+        <p class="good-insurance">商品保险： +<span>￥20.00</span></p>
       </div>
       <div class="payment">
         <p class="pay-num">
@@ -102,10 +102,11 @@
           </div>
           <p class="pay-detail">我已阅读并同意<strong>"订购服务条款"</strong><strong>"退换货约定"</strong><strong>"退款约定"</strong></p>
           <p>同意"票品为不记名凭证，请您妥善保管，遗失不补"</p>
-          <button>同意以上协议并提交订单</button>
+          <button :class="{active}">同意以上协议并提交订单</button>
         </div>
       </div>
     </div>
+    <Footer></Footer>
     <!--点击选择购票人弹窗-->
     <div class="buyer-pop-up-wrap" v-if="isshow">
       <div class="buyer-pop-up">
@@ -128,6 +129,7 @@
 
 <script>
 import Headnav from '@/components/ljd/Headnav'
+import Footer from '@/components/wy/Footer'
 
 export default {
   name: 'Orderconfirm',
@@ -176,7 +178,8 @@ export default {
     }
   },
   components: {
-    Headnav
+    Headnav,
+    Footer
   }
 }
 </script>
@@ -393,7 +396,8 @@ export default {
             border-radius: 6px;
             border: none;
             margin-left: 30px;
-            &:hover{
+
+            &:hover {
               cursor: pointer;
             }
           }
@@ -434,7 +438,8 @@ export default {
             border-radius: 6px;
             border: none;
             margin-left: 30px;
-            &:hover{
+
+            &:hover {
               cursor: pointer;
             }
           }
@@ -448,14 +453,17 @@ export default {
           }
         }
       }
-      .insurance{
+
+      .insurance {
         margin-top: 20px;
         border-top: 1px solid #000;
         padding: 25px 0;
         text-align: right;
-        .check-wrap{
+
+        .check-wrap {
           display: block;
-          .check{
+
+          .check {
             width: 20px;
             height: 20px;
             line-height: 20px;
@@ -464,43 +472,53 @@ export default {
             background: #f4f4f4;
             float: left;
             margin-left: 840px;
-            &:hover{
+
+            &:hover {
               cursor: pointer;
             }
           }
-          p{
+
+          p {
             padding: 0 0 10px 0;
           }
         }
-        p{
+
+        p {
           padding: 10px 0;
         }
-        .insurance-detail{
-          span{
+
+        .insurance-detail {
+          span {
             color: #ff3c1b;
-            &:hover{
+
+            &:hover {
               cursor: pointer;
             }
           }
         }
-        .good-num{
-          span{
+
+        .good-num {
+          span {
             color: #ff3c1b;
           }
         }
-        .good-insurance{
-          span{
+
+        .good-insurance {
+          span {
             color: #ff3c1b;
           }
         }
       }
-      .payment{
+
+      .payment {
         border-top: 1px dashed #000;
         text-align: right;
         padding: 10px 0 60px;
-        .pay-wrap{
+
+        .pay-wrap {
           display: block;
-          .pay{
+
+          .pay {
             width: 20px;
             height: 20px;
             line-height: 20px;
@@ -509,25 +527,30 @@ export default {
             background: #f4f4f4;
             float: left;
             margin-left: 770px;
-            &:hover{
+
+            &:hover {
               cursor: pointer;
             }
           }
-          p{
+
+          p {
             padding: 0 0 10px 0;
           }
         }
-        p{
-          padding:10px 0;
+
+        p {
+          padding: 10px 0;
         }
-        .pay-detail{
-          strong{
-            &:hover{
+
+        .pay-detail {
+          strong {
+            &:hover {
               cursor: pointer;
             }
           }
         }
-        button{
+
+        button {
           margin-top: 10px;
           font-size: 12px;
           color: #fff;
@@ -535,7 +558,8 @@ export default {
           padding: 10px 15px;
           border-radius: 4px;
           border: none;
-          &:hover{
+
+          &:hover {
             cursor: pointer;
           }
         }
