@@ -4,7 +4,7 @@
     <Headsearch class="headsearch-border"></Headsearch>
     <div class="box">
       <div class="box-left">
-        <el-col :span="120" >
+        <el-col class="show" :span="120" >
           <h5>大麦</h5>
           <el-menu
                   default-active="1"
@@ -30,12 +30,14 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Headnav from '../ljd/Headnav'
 import Headsearch from '../ljd/Headsearch'
+import Footer from '../ljd/Footer'
 import { mapMutations } from 'vuex'
 export default {
   name: 'Personal',
@@ -50,7 +52,8 @@ export default {
   },
   components: {
     Headnav,
-    Headsearch
+    Headsearch,
+    Footer
   },
   methods: {
     ...mapMutations(['setScroll']),
@@ -87,10 +90,18 @@ export default {
   }
   .box{
     width: 1200px;
+    height: 374px;
     margin: 20px auto;
     background: #fff;
+    overflow: hidden;
     .box-left{
       width: 200px;
+      // height: 100%;
+      -box-sizing: border-box;
+      .el-menu-vertical-demo{
+        border: none;
+        box-shadow: 0 2px 2px rgba(10,16,20,.24),0 0 2px rgba(10,16,20,.12);
+      }
       .active{
         border-right: 1px solid red
       }
