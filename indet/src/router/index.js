@@ -11,6 +11,7 @@ import List from '@/components/ljd/List'
 import Chooseseat from '@/components/pk/Chooseseat'
 import Orderconfirm from '@/components/pk/Orderconfirm'
 import Payorder from '@/components/pk/Payorder'
+import Paypage from '@/components/pk/Paypage'
 import Detail from '@/components/ljd/Detail'
 import Login from '@/components/wy/Login' // ��¼ҳ��
 import Registered from '@/components/wy/Registered' // 账户注册
@@ -107,9 +108,14 @@ export default new Router({
       component: Orderconfirm
     },
     {
-      path: '/',
+      path: '/Payorder',
       name: 'Payorder',
       component: Payorder
+    },
+    {
+      path: '/',
+      name: 'Paypage',
+      component: Paypage
     },
     {
       path: '/detail',
