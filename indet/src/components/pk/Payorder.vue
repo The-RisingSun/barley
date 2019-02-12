@@ -18,6 +18,21 @@
           4 收取商品
         </li>
       </ul>
+      <div class="order-detail-wrap">
+        <ul class="order-detail">
+          <li>订单编号</li>
+          <li>商品名称</li>
+          <li>订单金额</li>
+          <li>应付金额</li>
+        </ul>
+        <p class="shouldpay">应付总金额<span>  84.71</span>元</p>
+        <p class="pay-intro">以下支付平台都支持大多数银行卡</p>
+        <template class="radio-group">
+          <el-radio v-model="radio" label="1">微信支付</el-radio>
+          <el-radio v-model="radio" label="2">支付宝支付</el-radio>
+        </template>
+        <el-button type="primary" class="btn-primary">确认无误，支付</el-button>
+      </div>
     </div>
     <Footer></Footer>
   </div>
@@ -27,6 +42,11 @@
 import Headnav from '@/components/ljd/Headnav'
 import Footer from '@/components/wy/Footer'
 export default {
+  data () {
+    return {
+      radio: '1'
+    }
+  },
   name: 'Payorder',
   components: {
     Headnav,
@@ -98,6 +118,48 @@ export default {
           border-color: transparent transparent transparent #ff3c1b;
         }
       }
+    }
+    .order-detail {
+      overflow: hidden;
+      background: #f8f8f9;
+      border: 1px solid #000;
+      margin-top: 20px;
+
+      li {
+        width: 297px;
+        height: 40px;
+        line-height: 40px;
+        float: left;
+        font-size: 12px;
+        color: #495060;
+        text-indent: 15px;
+        border-right: 1px solid #000;
+      }
+
+      li:last-of-type {
+        border: none;
+      }
+    }
+    .shouldpay{
+      height: 40px;
+      line-height:40px;
+      font-size: 16px;
+      color: #495060;
+      span{
+        color: red;
+        font-size: 14px;
+      }
+    }
+    .pay-intro{
+      font-size: 12px;
+      color: #000;
+      margin-bottom: 20px;
+    }
+    .btn-primary{
+      margin-top: 20px;
+      display: block;
+      background: #ff3c1b;
+      border: none;
     }
 
   }
