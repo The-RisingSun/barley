@@ -90,7 +90,7 @@ export default {
   }
   .box{
     width: 1200px;
-    height: 374px;
+    -height: 374px;
     margin: 20px auto;
     background: #fff;
     overflow: hidden;

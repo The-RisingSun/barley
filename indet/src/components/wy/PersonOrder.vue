@@ -107,7 +107,8 @@ export default {
     return {
       tableData3: undefined,
       input5: '',
-      select: ''
+      select: '',
+      examine: []
     }
   },
   computed: {
@@ -121,23 +122,27 @@ export default {
       return 'warning-row'
     },
     Personal (vn) {
+      console.log(vn)
       if (vn === '') {
         alert(vn)
       } else {
         this.tableData3 = this.information
-        console.log(this.tableData3)
       }
     },
     inquire () {
-      this.Personal(this.input5)
-      console.log(this.input5)
-      // console.log(this.tableData3.search(this.input5))
-      // for (i = 0, i < this.tableData3.length, i++) {
-      //   if(this.tableData3[i].id.search(this.input5) === -1) {
-      //     console.log(0)
-      //   }
-      // }
-      console.log(this.tableData3)
+      // this.Personal(this.input5)
+      // this.tableData3 = []
+      console.log(typeof this.tableData3)
+      for (var i = 0; i < this.tableData3.length; i++) {
+        if (this.tableData3[i].id.search(this.input5) === -1) {
+          console.log(i + '条数据不匹配')
+        } else {
+          console.log(i)
+          this.examine.push(this.tableData3[i])
+          console.log(this.tableData3)
+        }
+      }
+      this.tableData3 = this.examine
     }
   },
   created () {

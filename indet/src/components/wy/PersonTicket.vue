@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div id="ticket">
     <PersonalPuslt></PersonalPuslt>
+    <button class="btn">新建购票人</button>
     <el-table
             :data="tableData"
             style="width: 100%">
@@ -29,9 +30,6 @@
         <template slot-scope="scope">
           <el-button
                   size="mini"
-                  @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <el-button
-                  size="mini"
                   type="danger"
                   @click="handleDelete(scope.$index, scope.row)">删除</el-button>
         </template>
@@ -48,7 +46,7 @@ export default {
     return {
       tableData: [{
         date: '2016-05-02',
-        name: '王小虎',
+        name: '你的',
         address: '上海市普陀区金沙江路 1518 弄'
       }, {
         date: '2016-05-04',
@@ -85,6 +83,19 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+#ticket{
+  .btn{
+     float: right;
+     margin: 14px 0 20px 0;
+     display: inline-block;
+     height: 32px;
+     padding: 0 14px;
+     background: #ed3f14;
+     border-radius: 2px;
+     border: none;
+     color: #fff;
+     cursor: pointer;
+   }
+}
 </style>
