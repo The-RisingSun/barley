@@ -55,6 +55,7 @@
 
 <script>
 import PersonalPuslt from './PersonalPuslt'
+import { mapMutations } from 'vuex'
 export default {
   name: 'PersonInfo',
   data () {
@@ -90,7 +91,14 @@ export default {
       }
     }
   },
+  created () {
+    this.getNewsList()
+  },
   methods: {
+    ...mapMutations(['setn']),
+    getNewsList () {
+      this.setn(2)
+    },
     onSubmit () {
       console.log('submit!')
     }

@@ -20,6 +20,7 @@ import PersonOrder from '@/components/wy/PersonOrder' // 订单管理
 import PersonInfo from '@/components/wy/PersonInfo' // 个人信息
 import PersonTicket from '@/components/wy/PersonTicket' // 常用购票人
 import Footer from '@/components/wy/Footer'
+import NewList from '@/components/wy/NewList'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -85,6 +86,11 @@ export default new Router({
         path: 'PersonInfo',
         name: 'PersonInfo',
         component: PersonInfo
+      },
+      {
+        path: 'NewList',
+        name: 'NewList',
+        component: NewList
       },
       {
         path: 'PersonTicket',

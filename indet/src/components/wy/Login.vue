@@ -135,13 +135,18 @@ export default {
         return false
       }
       if (localStorage.getItem(this.name) === null) {
+        console.log(0)
         this.$message('没有当前用户请注册')
+      } else {
+        this.$router.push({path: '/home'})
       }
     },
     mobileLogin () {
-      console.log(localStorage.getItem(this.name)
-      if (localStorage.getItem(this.name) === null && this.tisi === null && this.yard === null) {
-        this.$message('没有当前用户请注册')
+      console.log(localStorage.getItem(this.name))
+      if (localStorage.getItem(this.name) === null || this.tisi === null || this.yard === null) {
+        this.$message('输入不完整')
+      } else {
+        this.$router.push({path: '/home'})
       }
     }
   }

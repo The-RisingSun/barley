@@ -7,7 +7,7 @@
         <el-col class="show" :span="120" >
           <h5>大麦</h5>
           <el-menu
-                  default-active="1"
+                  default-active=index
                   class="el-menu-vertical-demo"
                   @open="handleOpen"
                   @close="handleClose"
@@ -38,7 +38,7 @@
 import Headnav from '../ljd/Headnav'
 import Headsearch from '../ljd/Headsearch'
 import Footer from '../ljd/Footer'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'Personal',
   data () {
@@ -49,6 +49,13 @@ export default {
       index: 1,
       active: 'active'
     }
+  },
+  computed: {
+    ...mapState(['num'])
+  },
+  created () {
+    this.index = this.num
+    console.log(this.index)
   },
   components: {
     Headnav,
