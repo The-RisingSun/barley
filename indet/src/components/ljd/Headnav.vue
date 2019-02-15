@@ -1,7 +1,7 @@
 <template>
   <div id="headnav">
     <div class="txtleft">
-      <span>HI , 欢迎来到大麦 [<a href="#"> 登录</a> <a href="#">注册 </a>]</span>
+      <span>HI , 欢迎来到大麦 [<router-link to="/login"> 登录</router-link> <router-link  to="/login">注册 </router-link>]</span>
       <p>&nbsp;&nbsp;我的大麦 <i class="fa fa-angle-down fa-lg"></i></p>
       <ul>
         <li>个人信息</li>

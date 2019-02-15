@@ -1,5 +1,5 @@
 <template>
-  <div id="children"></div>
+  <div id="children">childrensafafs</div>
 </template>
 
 <script>
