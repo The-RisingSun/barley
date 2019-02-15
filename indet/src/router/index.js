@@ -17,7 +17,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/HelloWorld',
+      path: '/',
       name: 'HelloWorld',
       component: HelloWorld
     },
@@ -32,7 +32,7 @@ export default new Router({
       component: Chooseseat
     },
     {
-      path: '/',
+      path: '/Orderconfirm',
       name: 'Orderconfirm',
       component: Orderconfirm
     },
