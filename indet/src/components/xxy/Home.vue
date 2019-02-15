@@ -312,7 +312,7 @@ export default {
     }
   },
   created () {
-    this.$http.get(this.$url + '/hover').then((res) => {
+    this.$http.get(this.$url + '/home').then((res) => {
       this.datax = res.data.data
       this.botData = res.data.botData
       this.tabs = res.data.tabs
@@ -360,7 +360,7 @@ export default {
 }
 </script>
 <style scoped lang="less">
-  /* public */
+  /* public.less */
   b,strong,em,i{
     font-style: normal;
     font-weight: normal;
@@ -924,7 +924,7 @@ export default {
   }
   //返回顶部结束
 </style>
-<style lang="less">
+<style lang="less" scoped>
   #tabs {
     width: 1170px;
     margin:30px auto;

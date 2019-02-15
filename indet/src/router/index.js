@@ -17,6 +17,7 @@ import Personal from '@/components/wy/Personal'
 import PersonOrder from '@/components/wy/PersonOrder' // 订单管理
 import PersonInfo from '@/components/wy/PersonInfo' // 个人信息
 import PersonTicket from '@/components/wy/PersonTicket' // 常用购票人
+import Headcomp from '@/components/xxy/test/Headcomp' // 简单的测试组件
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -49,16 +50,6 @@ export default new Router({
     {
       path: '/dance',
       component: Dance
-    },
-    {
-      path: '/home',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/children',
-      name: 'Children',
-      component: Children
     },
     {
       path: '/login',
@@ -108,6 +99,11 @@ export default new Router({
       path: '/detail',
       name: 'Detail',
       component: Detail
+    },
+    {
+      path: '/headcomp',
+      name: 'Headcomp',
+      component: Headcomp
     }
   ]
 })
