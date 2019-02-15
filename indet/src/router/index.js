@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/xxy/Home'
-import HelloWorld from '@/components/HelloWorld'
 import Children from '@/components/xxy/Children' // 儿童亲子
 import Dance from '@/components/xxy/Dance' // 舞蹈芭蕾
 import Drama from '@/components/xxy/Drama'// 戏剧话剧
@@ -25,14 +24,9 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'Home',
       component: Home
-    },
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
     },
     {
       path: '/drama',
