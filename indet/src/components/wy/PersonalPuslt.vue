@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'PersonalPuslt',
   computed: {
@@ -29,10 +29,12 @@ export default {
     this.getParams()
   },
   methods: {
+    ...mapMutations(['setScroll']),
     getParams () {
       // 取到路由带过来的参数
       if (this.saveName === this.contact) {
       } else {
+        console.log(this.saveName)
         this.contact = this.saveName
         this.accounttwo = '账户中心'
       }

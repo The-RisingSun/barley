@@ -32,18 +32,13 @@
           <div class="choosetime">
             <p>演出时间 :</p>
             <ul>
-              <li class="active1">1999-11-09 09:44:55</li>
-              <li>1999-11-09 09:44:55</li>
-              <li>1999-11-09 09:44:55</li>
-              <li>1999-11-09 09:44:55</li>
+              <li @click="change(index)" v-for="(item, index) in items" :key="index" :class="{'active1': index === thisIndex}">{{item.list}}</li>
             </ul>
           </div>
           <div class="chooseprice">
             <p>选择票价 :</p>
             <ul>
               <li class="active2">80元</li>
-              <li>90元</li>
-              <li>100元</li>
             </ul>
           </div>
           <div class="chooseseat">
@@ -53,8 +48,14 @@
         <div class="score">
           <h5>大麦网评分:</h5>
           <div class="starscore">
-            <span>4.6</span>
-            <input type="text" value="">
+            <el-rate
+              style="display: inline-block"
+              v-model="value5"
+              disabled
+              show-score
+              text-color="#ff9900"
+              score-template="{value}">
+            </el-rate>
             <span><i>3000</i>人参与评论</span>
           </div>
           <div class="txt">
@@ -78,12 +79,11 @@
       </div>
       <div class="detailleft">
         <ul class="tabnav">
-          <li class="active3">
-            演出信息
-          </li>
-          <li>精彩剧评</li>
-          <li>购买说明</li>
-          <li>付款方式</li>
+          <li
+            @click="tabchange(index)"
+            :class="[index == activeOk ? 'active3': '']"
+            v-for="(item, index) in items2"
+            :key="index">{{item.list2}}</li>
         </ul>
         <div class="tit">
           <h3>基本信息</h3>
@@ -133,68 +133,31 @@
           <span></span>
         </div>
         <div class="chosscore">
-          <p>打个分吧: <input type="text"> <span>0</span></p>
-          <textarea></textarea>
-          <button>评价</button>
+          <p>打个分吧: <el-rate style="display: inline-block" v-model="score"></el-rate></p>
+          <textarea v-model="scoreText"></textarea>
+          <button @click="scoreClick()">评价</button>
         </div>
-        <div class="commentlist">
+        <div class="commentlist" v-if="scoreList.length <= 0">
+          暂无评价…………
+        </div>
+        <div class="commentlist" v-else
+             v-for="(item, index) in scoreList"
+             :key="index"
+        >
           <div class="user">
             <img src="/static/img/detail.jpg" alt="">
             12
           </div>
           <div class="comment">
-            <p>喜剧风格引发深刻思考，精彩精彩精彩精彩</p>
-            <p><input type="text"> <span>2017年12月31日</span></p>
-          </div>
-        </div>
-        <div class="commentlist">
-          <div class="user">
-            <img src="/static/img/detail.jpg" alt="">
-            12
-          </div>
-          <div class="comment">
-            <p>喜剧风格引发深刻思考，精彩精彩精彩精彩</p>
-            <p><input type="text"> <span>2017年12月31日</span></p>
-          </div>
-        </div>
-        <div class="commentlist">
-          <div class="user">
-            <img src="/static/img/detail.jpg" alt="">
-            12
-          </div>
-          <div class="comment">
-            <p>喜剧风格引发深刻思考，精彩精彩精彩精彩</p>
-            <p><input type="text"> <span>2017年12月31日</span></p>
-          </div>
-        </div>
-        <div class="commentlist">
-          <div class="user">
-            <img src="/static/img/detail.jpg" alt="">
-            12
-          </div>
-          <div class="comment">
-            <p>喜剧风格引发深刻思考，精彩精彩精彩精彩</p>
-            <p><input type="text"> <span>2017年12月31日</span></p>
-          </div>
-        </div>
-        <div class="commentlist">
-          <div class="user">
-            <img src="/static/img/detail.jpg" alt="">
-            12
-          </div>
-          <div class="comment">
-            <p>喜剧风格引发深刻思考，精彩精彩精彩精彩</p>
-            <p><input type="text"> <span>2017年12月31日</span></p>
-          </div>
-        </div>
-        <div class="commentlist">
-          <div class="user">
-            <img src="/static/img/detail.jpg" alt="">
-            12
-          </div>
-          <div class="comment">
-            <p>喜剧风格引发深刻思考，精彩精彩精彩精彩</p>
-            <p><input type="text"> <span>2017年12月31日</span></p>
+            <p>{{item.scoreText}}</p>
+            <p>评分：<el-rate
+              style="display: inline-block"
+              v-model="item.score"
+              disabled
+              show-score
+              text-color="#ff9900"
+              score-template="{value}">
+            </el-rate> 分 &nbsp;&nbsp; 评论时间：<span>{{item.nowTime}}</span></p>
           </div>
         </div>
       </div>
@@ -249,6 +212,69 @@ export default {
   name: 'Detail',
   components: {
     Headnav, Headsearch, Footer
+  },
+  data () {
+    return {
+      activeOk: 0,
+      scoreList: [],
+      nowTime: '',
+      score: '',
+      scoreText: '',
+      value5: 4.6,
+      thisIndex: 0,
+      items: [
+        {list: '1999-11-09 09:44:55'},
+        {list: '1999-11-09 09:44:55'},
+        {list: '1999-11-09 09:44:55'},
+        {list: '1999-11-09 09:44:55'}
+      ],
+      items1: [
+        {price: '80元'}
+      ],
+      items2: [
+        {list2: '演出信息'},
+        {list2: '精彩剧评'},
+        {list2: '购买说明'},
+        {list2: '付款方式'}
+      ]
+    }
+  },
+  methods: {
+    tabchange (index) {
+      this.activeOk = index
+    },
+    change (self) {
+      this.thisIndex = self
+    },
+    scoreClick () {
+      if (this.score === '' || this.scoreText === '') {
+        alert(`请打分，并写上您的评价内容哦！~`)
+      } else {
+        let myData = new Date()
+        let y = myData.getFullYear()
+        let m = myData.getMonth() + 1
+        let d = myData.getDate()
+        let h = myData.getHours()
+        let mm = myData.getMinutes()
+        let s = myData.getSeconds()
+        if (d < 10 || s < 10) {
+          this.nowTime = y + '/ ' + m + '/' + d + '  ' + h + ': ' + '0' + mm + ':' + '0' + s
+        } else {
+          this.nowTime = y + '/ ' + m + '/' + d + '  ' + h + ': ' + mm + ':' + s
+        }
+        let newArrar = [
+          {
+            score: this.score,
+            scoreText: this.scoreText,
+            nowTime: this.nowTime
+          }
+        ]
+        this.scoreList = [...this.scoreList, ...newArrar]
+        this.score = ''
+        this.scoreText = ''
+        this.nowTime = ''
+      }
+    }
   }
 }
 </script>
@@ -401,6 +427,7 @@ export default {
                 border: 1px solid #ccc;
                 border-radius: 2px;
                 font-size: 9px;
+                cursor: pointer;
               }
               li.active1{
                 border: 1px solid #ff3c1b;
@@ -455,11 +482,8 @@ export default {
             margin-top: 20px;
             height: 38px;
             border-bottom: 1px dashed #ccc;
-            span:nth-of-type(1){
-              font-size: 14px;
-              color: #ff3c1b;
-            }
-            span:nth-of-type(2){
+
+            span{
               font-size: 14px;
               i{
                 color: #ff3c1b;
@@ -502,6 +526,7 @@ export default {
             line-height: 32px;
             text-align: center;
             font-size: 12px;
+            cursor: pointer;
           }
         }
         .tit{

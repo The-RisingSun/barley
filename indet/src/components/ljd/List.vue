@@ -10,148 +10,67 @@
           <div class="city">
             <span>城 市:</span>
             <ul>
-              <li class="active">全部</li>
-              <li>北京</li>
-              <li>上海</li>
-              <li>深圳</li>
-              <li>杭州</li>
-              <li>广州</li>
-              <li>成都</li>
-              <li>西安</li>
+              <li @click="checked(index, item.list)" :class="{'active': index === thisIndex}" :key="index" v-for="(item, index) in items">{{item.list}}</li>
             </ul>
           </div>
           <div class="classify">
             <span>分 类:</span>
             <ul>
-              <li class="active">全部</li>
-              <li>音乐会</li>
-              <li>朗诵</li>
-              <li>曲苑杂坛</li>
-              <li>独奏</li>
-              <li>管弦乐</li>
-              <li>声乐及合唱</li>
+              <li @click="checked1(i)" :class="{'active': i === thisindex1}" :key="i" v-for="(item1,i) in items1">{{item1.list1}}</li>
             </ul>
           </div>
           <div class="time">
             <span>时 间:</span>
             <ul>
-              <li class="active">全部</li>
-              <li>今天</li>
-              <li>明天</li>
-              <li>
-                <b>选择日期</b>
-                <i class="fa fa-calendar-o"></i>
-              </li>
-              <li>
-                <b>选择日期</b>
-                <i class="fa fa-calendar-o"></i>
-              </li>
+              <li @click="checked2(i)" :key="i" v-for="(item2,i) in items2" :class="{'active': i === thisindex2}">{{item2.list2}}</li>
             </ul>
+            <div class="block">
+              <el-date-picker v-model="value1" type="date" placeholder="选择日期">
+              </el-date-picker>
+            </div>
           </div>
         </div>
         <div class="list">
           <div class="toptab">
-            <ul>
-              <li class="active1">热门推荐</li>
-              <li>最近开场</li>
-              <li>最新上架</li>
+              <ul>
+              <li
+                style="cursor: pointer"
+                :class="[index === activeOk ? 'active1': '']"
+                v-for="(item, index) in detailLists"
+                :key="index"
+                @click="typeNameClick(index, item.typeName)"
+              >{{item.typeName}}</li>
             </ul>
             <div class="topright">
-              <div class="active2">
-                <span class="fa fa-bars"></span>
-              </div>
-              <div>
-                <span class="fa fa-windows"></span>
+              <div
+                :key="v"
+                v-for="(item, v) in cssFont"
+                @click="tab(v)"
+                :class="[v === thisindex3 ? 'active2': '']">
+                <span :class="item.typeFont"></span>
               </div>
             </div>
           </div>
           <div class="ticketlist">
-            <div class="ticket">
+            <div class="ticket" v-for="(item,l) in listData" :key="l">
               <div class="pic">
-                <img src="/static/img/list.jpg" alt="">
+                <img :src="item.img" alt="">
               </div>
               <div class="txt">
-                <h5>[上海] 藿香确定大。</h5>
-                <p>商战电地区文化的期望和</p>
-                <p><img src="/static/img/listlogo.jpg" alt="">&nbsp;&nbsp;2009-10-22</p>
-                <p><img src="/static/img/listlogo1.jpg" alt="">&nbsp;&nbsp;浙江省 丽水市 缙云县</p>
-                <p><span>69-169元</span> &nbsp;&nbsp;售票中</p>
-                <p><img src="/static/img/listlogo2.jpg" alt="">&nbsp;&nbsp;电子票</p>
-              </div>
-            </div>
-            <div class="ticket">
-              <div class="pic">
-                <img src="/static/img/list.jpg" alt="">
-              </div>
-              <div class="txt">
-                <h5>[上海] 藿香确定大。</h5>
-                <p>商战电地区文化的期望和</p>
-                <p><img src="/static/img/listlogo.jpg" alt="">&nbsp;&nbsp;2009-10-22</p>
-                <p><img src="/static/img/listlogo1.jpg" alt="">&nbsp;&nbsp;浙江省 丽水市 缙云县</p>
-                <p><span>69-169元</span> &nbsp;&nbsp;售票中</p>
-                <p><img src="/static/img/listlogo2.jpg" alt="">&nbsp;&nbsp;电子票</p>
-              </div>
-            </div>
-            <div class="ticket">
-              <div class="pic">
-                <img src="/static/img/list.jpg" alt="">
-              </div>
-              <div class="txt">
-                <h5>[上海] 藿香确定大。</h5>
-                <p>商战电地区文化的期望和</p>
-                <p><img src="/static/img/listlogo.jpg" alt="">&nbsp;&nbsp;2009-10-22</p>
-                <p><img src="/static/img/listlogo1.jpg" alt="">&nbsp;&nbsp;浙江省 丽水市 缙云县</p>
-                <p><span>69-169元</span> &nbsp;&nbsp;售票中</p>
-                <p><img src="/static/img/listlogo2.jpg" alt="">&nbsp;&nbsp;电子票</p>
-              </div>
-            </div>
-            <div class="ticket">
-              <div class="pic">
-                <img src="/static/img/list.jpg" alt="">
-              </div>
-              <div class="txt">
-                <h5>[上海] 藿香确定大。</h5>
-                <p>商战电地区文化的期望和</p>
-                <p><img src="/static/img/listlogo.jpg" alt="">&nbsp;&nbsp;2009-10-22</p>
-                <p><img src="/static/img/listlogo1.jpg" alt="">&nbsp;&nbsp;浙江省 丽水市 缙云县</p>
-                <p><span>69-169元</span> &nbsp;&nbsp;售票中</p>
-                <p><img src="/static/img/listlogo2.jpg" alt="">&nbsp;&nbsp;电子票</p>
-              </div>
-            </div>
-            <div class="ticket">
-              <div class="pic">
-                <img src="/static/img/list.jpg" alt="">
-              </div>
-              <div class="txt">
-                <h5>[上海] 藿香确定大。</h5>
-                <p>商战电地区文化的期望和</p>
-                <p><img src="/static/img/listlogo.jpg" alt="">&nbsp;&nbsp;2009-10-22</p>
-                <p><img src="/static/img/listlogo1.jpg" alt="">&nbsp;&nbsp;浙江省 丽水市 缙云县</p>
-                <p><span>69-169元</span> &nbsp;&nbsp;售票中</p>
-                <p><img src="/static/img/listlogo2.jpg" alt="">&nbsp;&nbsp;电子票</p>
-              </div>
-            </div>
-            <div class="ticket">
-              <div class="pic">
-                <img src="/static/img/list.jpg" alt="">
-              </div>
-              <div class="txt">
-                <h5>[上海] 藿香确定大。</h5>
-                <p>商战电地区文化的期望和</p>
-                <p><img src="/static/img/listlogo.jpg" alt="">&nbsp;&nbsp;2009-10-22</p>
-                <p><img src="/static/img/listlogo1.jpg" alt="">&nbsp;&nbsp;浙江省 丽水市 缙云县</p>
-                <p><span>69-169元</span> &nbsp;&nbsp;售票中</p>
-                <p><img src="/static/img/listlogo2.jpg" alt="">&nbsp;&nbsp;电子票</p>
+                <h5>{{item.name}}</h5>
+                <p>{{item.title}}</p>
+                <p><img :src="item.timeImg" alt="">{{item.time}}</p>
+                <p><img :src="item.addressImg" alt="">{{item.address}}</p>
+                <p><span>{{item.price}}元</span>{{item.state}}</p>
+                <p><img :src="item.typeImg" alt="">{{item.type}}</p>
               </div>
             </div>
             <div class="page">
-              <span>共23条</span>
-              <ul>
-                <li><i class="fa fa-angle-left"></i></li>
-                <li class="active3">1</li>
-                <li>2</li>
-                <li><i class="fa fa-angle-right"></i></li>
-              </ul>
+              <el-pagination
+                background
+                layout="prev, pager, next"
+                :total="40">
+              </el-pagination>
             </div>
           </div>
         </div>
@@ -193,6 +112,134 @@ export default {
   name: 'List',
   components: {
     Headnav, Headsearch, Footer
+  },
+  data () {
+    return {
+      cssFont: [
+        {typeFont: 'fa fa-bars'},
+        {typeFont: 'fa fa-windows'}
+      ],
+      thisindex3: 0,
+      // *****
+      activeOk: 0,
+      detailLists: [
+        {typeName: '热门推荐'},
+        {typeName: '最近开场'},
+        {typeName: '最新上架'}
+      ],
+      // ****
+      pickerOptions1: {
+        disabledDate (time) {
+          return time.getTime() > Date.now()
+        },
+        shortcuts: [{
+          text: '今天',
+          onClick (picker) {
+            picker.$emit('pick', new Date())
+          }
+        }, {
+          text: '昨天',
+          onClick (picker) {
+            const date = new Date()
+            date.setTime(date.getTime() - 3600 * 1000 * 24)
+            picker.$emit('pick', date)
+          }
+        }, {
+          text: '一周前',
+          onClick (picker) {
+            const date = new Date()
+            date.setTime(date.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', date)
+          }
+        }]
+      },
+      value1: '',
+      value2: '',
+      thisIndex: 0,
+      thisindex1: 0,
+      thisindex2: 0,
+      listData: [],
+      items: [
+        {list: '全部'},
+        {list: '北京'},
+        {list: '上海'},
+        {list: '广州'},
+        {list: '成都'},
+        {list: '西安'}
+      ],
+      items1: [
+        {list1: '全部'},
+        {list1: '音乐会'},
+        {list1: '朗诵'},
+        {list1: '曲苑杂坛'},
+        {list1: '独奏'},
+        {list1: '管弦乐'},
+        {list1: '声乐及合唱'}
+      ],
+      items2: [
+        {list2: '全部'},
+        {list2: '今天'},
+        {list2: '明天'}
+      ]
+    }
+  },
+  methods: {
+    typeNameClick (x, e) {
+      // console.log(x)
+      // console.log(e)
+      this.activeOk = x
+      if (x === 0) {
+        this.$http.get('https://www.easy-mock.com/mock/5c3c6b83cdcbc2522bf432cf/example/one').then((res) => {
+          this.listData = res.data.data.dataList
+        })
+      } else if (x === 1) {
+        this.$http.get('https://www.easy-mock.com/mock/5c3c6b83cdcbc2522bf432cf/example/two').then((res) => {
+          this.listData = res.data.data.dataList
+        })
+      } else if (x === 2) {
+        this.$http.get('https://www.easy-mock.com/mock/5c3c6b83cdcbc2522bf432cf/example/three').then((res) => {
+          this.listData = res.data.data.dataList
+        })
+      }
+    },
+    checked (self, cityName) {
+      this.thisIndex = self
+      this.$http.get('https://www.easy-mock.com/mock/5c3c6b83cdcbc2522bf432cf/example/city').then((res) => {
+        this.listData = res.data.data.cityData
+      })
+    },
+    checked1 (self1) {
+      this.thisindex1 = self1
+      this.$http.get('https://www.easy-mock.com/mock/5c3c6b83cdcbc2522bf432cf/example/type').then((res) => {
+        this.listData = res.data.data.typeData
+      })
+    },
+    checked2 (self2) {
+      this.thisindex2 = self2
+      this.$http.get('https://www.easy-mock.com/mock/5c3c6b83cdcbc2522bf432cf/example/time').then((res) => {
+        this.listData = res.data.data.timeData
+      })
+    },
+    initGetData () {
+      this.$http.get('https://www.easy-mock.com/mock/5c3c6b83cdcbc2522bf432cf/example/list').then((res) => {
+        this.listData = res.data.data.dataList
+      })
+    },
+    // 接口封装
+    clickAjax () {
+      return new Promise(function (resolve, reject) {
+        this.$http.get('https://www.easy-mock.com/mock/5c3c6b83cdcbc2522bf432cf/example/list').then((res) => {
+          resolve(res)
+        })
+      })
+    },
+    tab (v) {
+      this.thisIndex3 = v
+      console.log(this.thisIndex3)
+    }
+  },
+  created () {
+    this.initGetData()
   }
 }
 </script>
@@ -241,6 +288,7 @@ export default {
             line-height: 26px;
             text-align: center;
             margin-left: 20px;
+            cursor: pointer;
           }
           li.active{
             background: #ff3c1b;
@@ -267,6 +315,7 @@ export default {
             line-height: 26px;
             text-align: center;
             margin-left: 20px;
+            cursor: pointer;
           }
           li.active{
             background: #ff3c1b;
@@ -293,43 +342,15 @@ export default {
             line-height: 26px;
             text-align: center;
             margin-left: 20px;
-          }
-          li:nth-of-type(4){
-            width: 150px;
-            height: 24px;
-            border: 1px solid #ccc;
-            border-radius: 2px;
-            text-align: initial;
-            overflow: hidden;
-            b{
-              font-weight: normal;
-              color: #bbbec4;
-            }
-            i{
-              float: right;
-              margin-top: 6px;
-            }
-          }
-          li:nth-of-type(5){
-            width: 150px;
-            height: 24px;
-            border: 1px solid #ccc;
-            text-align: initial;
-            border-radius: 2px;
-            overflow: hidden;
-            b{
-              font-weight: normal;
-              color: #bbbec4;
-            }
-            i{
-              float: right;
-              margin-top: 6px;
-            }
+            cursor: pointer;
           }
           li.active{
             background: #ff3c1b;
             color: #fff;
           }
+        }
+        .block{
+          margin: -8px 0 0 20px;
         }
       }
     }
@@ -440,31 +461,9 @@ export default {
         }
         .page{
           height: 44px;
-          display: flex;
-          span{
-            display: inline-block;
-            margin-left: 40%;
-            height: 40px;
-            line-height: 40px;
-          }
-          ul{
-            display: flex;
-            margin-left: 10px;
-            li{
-              width: 30px;
-              height: 30px;
-              line-height: 30px;
-              text-align: center;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              margin-right: 10px;
-              margin-top: 4px;
-            }
-            li.active3{
-              background: #ff3c1b;
-              color: #fff;
-              border: none;
-            }
+          .el-pagination{
+            text-align: center;
+            margin-top: 10px;
           }
         }
       }
