@@ -1,12 +1,13 @@
 <template>
   <div id="tabs">
     <ul id="tab">
-      <router-link to="/home" tag="li" exact active-class="active">首页</router-link>
+      <router-link to="/" tag="li" exact active-class="active">首页</router-link>
       <router-link to="/sports" tag="li" exact active-class="active">体育</router-link>
       <router-link to="/dance" tag="li" exact active-class="active">舞蹈古典</router-link>
       <router-link to="/children" tag="li" exact active-class="active">亲子</router-link>
       <router-link to="/rock" tag="li" exact active-class="active">摇滚</router-link>
       <router-link to="/drama" tag="li" exact active-class="active">戏剧</router-link>
+      <router-view></router-view>
     </ul>
   </div>
 </template>

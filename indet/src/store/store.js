@@ -1,6 +1,29 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
+var xxy = {
+  state: {
+    info: '全部商品分类',
+    tabData: {
+      url: '',
+      title: '',
+      city: '',
+      province: '',
+      date: ''
+    }
+  },
+  mutations: {
+    pullData (state, params) {
+      alert(params)
+      console.log(params)
+      state.tabData.url = params[0]
+      state.tabData.title = params[1]
+      state.tabData.city = params[2]
+      state.tabData.province = params[3]
+      state.tabData.date = params[4]
+    }
+  }
+}
 var store = new Vuex.Store({
   state: {
     saveName: '订单管理',
@@ -48,7 +71,8 @@ var store = new Vuex.Store({
       integer: 566,
       price: 1,
       status: '待支付'
-    }]
+    }
+    ]
   },
   mutations: {
     setScroll (state, val) {
@@ -65,6 +89,9 @@ var store = new Vuex.Store({
     pull (state, val) {
       state.saveName.pull(state)
     }
+  },
+  modules: {
+    xxy
   }
 })
 export default store

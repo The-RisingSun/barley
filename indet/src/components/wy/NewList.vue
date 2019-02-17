@@ -71,9 +71,11 @@ export default {
         this.hint = '身份证有误，请重填'
         return false
       }
-      let sle = {calorie: this.value,
+      let sle = {
+        calorie: this.value,
         name: this.username,
-        address: this.identity}
+        address: this.identity
+      }
       this.push(sle)
       console.log(22)
     },

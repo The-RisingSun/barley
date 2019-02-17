@@ -7,7 +7,7 @@
     <!--banner开始-->
     <el-container id="menu">
       <el-header height="50" style="line-height: 50px" id="header">
-        <h2>全部商品分类</h2>
+        <h2 class="time" lazy="2222">{{xxy.info}}</h2>
         <ul id="tab">
           <router-link to="/drama" tag="li">戏剧</router-link>
           <router-link to="/sports" tag="li">体育</router-link>
@@ -61,14 +61,14 @@
       </section>
     </el-container>
     <!--banner结束-->
-    <!--tab开始-->
-    <el-tabs v-model="activeName" @tab-click="handleClick" id="tabs">
+    <!--tab开始 -->
+    <el-tabs v-model="activeName" id="tabs">
       <el-tab-pane label="今日推荐" name="first" class="head">
         <el-row class="row">
           <el-col :span="3" v-for="(item, index) in tabs" :key="(item, index)" :offset="index > 0 ? 1 : 0" width="150"
-                  class="wrap"
+                  class= "wrap"
           >
-            <a class="thumbnail" href="#">
+          <router-link tag="a" class="thumbnail" to="/detail"  id="first-route">
               <div class="img-group">
                 <img v-lazy=item.image class="image" width="150" height="191">
                 <div class="hide">
@@ -80,16 +80,16 @@
                 <p class="style">{{item.csentence}}</p>
                 <p>票价:<span>&yen;{{item.integer}}</span></p>
               </div>
-            </a>
+            </router-link>
           </el-col>
         </el-row>
-      </el-tab-pane>
+      </el-tab-pane><!--@tab-click="setVal(datax)"-->
       <el-tab-pane label="即将开售" name="second" class="head">
         <el-row class="row">
           <el-col :span="3" v-for="(item, index) in tabs2" :key="(item, index)" :offset="index > 0 ? 1 : 0" width="150"
                   class="wrap"
           >
-            <a class="thumbnail" href="#">
+            <router-link tag="a" class="thumbnail" to="/detail" id="second-route">
               <div class="img-group">
                 <img v-lazy=item.image class="image" width="150" height="191">
                 <div class="hide">
@@ -101,7 +101,7 @@
                 <p class="style">{{item.csentence}}</p>
                 <p>票价:<span>&yen;{{item.integer}}</span></p>
               </div>
-            </a>
+            </router-link>
           </el-col>
         </el-row>
       </el-tab-pane>
@@ -115,7 +115,7 @@
             <span>{{item.floor}}</span>
             {{item.title}}
           </h2>
-          <div class="img-group">
+          <router-link to="/detail" tag="div" class="img-group" v-on:click.native="setVal($event)">
             <img v-lazy=item.bigImg alt="">
             <div class="hide">
               <p>{{item.csentence[0]}}</p>
@@ -123,8 +123,8 @@
                 <span>{{item.integer[0]}}</span>元
               </p>
             </div>
-          </div>
-          <div class="floor-cont">
+          </router-link>
+          <router-link to="/detail" tag="div" class="floor-cont" @click.native="getFloorData($event)">
             <div class="img-wrap">
               <img v-lazy=item.url[0] alt="">
               <div class="hide">
@@ -152,8 +152,8 @@
                 &yen;<span>{{item.integer[1]}}</span>起
               </li>
             </ul>
-          </div>
-          <div class="floor-cont">
+          </router-link>
+          <router-link to="/detail" tag="div" class="floor-cont" @click.native="getFloorData($event)">
             <div class="img-wrap">
               <img v-lazy=item.url[1] alt="">
               <div class="hide">
@@ -181,8 +181,8 @@
                 &yen;<span>{{item.integer[2]}}</span>起
               </li>
             </ul>
-          </div>
-          <div class="floor-cont">
+          </router-link>
+          <router-link to="/detail" tag="div" class="floor-cont" @click.native="getFloorData($event)">
             <div class="img-wrap">
               <img v-lazy=item.url[2] alt="">
               <div class="hide">
@@ -210,8 +210,8 @@
                 &yen;<span>{{item.integer[3]}}</span>起
               </li>
             </ul>
-          </div>
-          <div class="floor-cont">
+          </router-link>
+          <router-link to="/detail" tag="div" class="floor-cont" @click.native="getFloorData($event)">
             <div class="img-wrap">
               <img v-lazy=item.url[3] alt="">
               <div class="hide">
@@ -239,7 +239,7 @@
                 &yen;<span>{{item.integer[4]}}</span>起
               </li>
             </ul>
-          </div>
+          </router-link>
         </div>
       </div>
       <div class="right-wrap">
@@ -286,6 +286,7 @@ import Card from './Card'
 import Headnav from '../ljd/Headnav'
 import Headsearch from '../ljd/Headsearch'
 import Footer from '../ljd/Footer'
+import { mapState, mapMutations, mapActions } from 'vuex'
 let obj = ['演唱会', '音乐会', '歌剧话剧', '曲苑杂坛', '体育比赛', '儿童亲子', '舞蹈芭蕾']
 export default {
   name: 'Home',
@@ -311,6 +312,9 @@ export default {
       toggle: false
     }
   },
+  computed: {
+    ...mapState(['xxy', 'info'])
+  },
   created () {
     this.$http.get(this.$url + '/home').then((res) => {
       this.datax = res.data.data
@@ -318,7 +322,7 @@ export default {
       this.tabs = res.data.tabs
       this.tabs2 = res.data.tabs2
       this.rightData = res.data.rightData
-      console.log(this.tabs)
+      // console.log(this.tabs)
     }).catch((error) => {
       console.log('错误信息', error)
     })
@@ -332,9 +336,35 @@ export default {
         This.toggle = true
       }
     }
+    // tab-first的数据
+    document.querySelector('#pane-first').addEventListener('click', function (e) {
+      let target = e.target// 事件发生的元素
+      let nodeList = e.target.parentNode// 同级元素集合
+      console.log(e)
+      console.log(target)
+      let src = nodeList.querySelector('.image').attributes['data-src'].nodeValue
+      let text = nodeList.querySelector('.hide').querySelector('p:first-child').textContent
+      console.log(src, text)
+      let array = [src, text, '杭州市', '浙江省', '2018-01-11-2019-01-01']
+      This.pullData(array)
+    })
+    // tab-second的数据
+    document.querySelector('#pane-second').addEventListener('click', function (e) {
+      let target = e.target// 事件发生的元素
+      let nodeList = e.target.parentNode// 同级元素集合
+      console.log(e)
+      console.log(target)
+      let src = nodeList.querySelector('.image').attributes['data-src'].nodeValue
+      let text = nodeList.querySelector('.hide').querySelector('p:first-child').textContent
+      console.log(src, text)
+      let array = [src, text, '杭州市', '浙江省', '2018-01-11-2019-01-01']
+      This.pullData(array)
+    })
   },
   methods: {
     // this.$store.commit('mouseover')
+    ...mapMutations(['pullData']),
+    ...mapActions(['getHome']),
     changed (index) {
       this.msg = this.datax[index]
       console.log(this.msg)
@@ -342,9 +372,6 @@ export default {
     },
     close () {
       this.off = false
-    },
-    handleClick (tab, event) {
-      console.log(tab, event)
     },
     back () {
       let timer = null
@@ -355,6 +382,32 @@ export default {
         }
         document.documentElement.scrollTop = top - 30
       }, 10)
+    },
+    getFloorData (e) {
+      let target = e.target
+      let nodeList = e.target.nextElementSibling
+      let targetParent = e.target.parentElement.nextElementSibling.nextElementSibling
+      console.log(target)
+      console.log(nodeList)
+      console.log(targetParent)
+      let src = target.getAttribute('src')
+      let text = nodeList.firstElementChild.textContent
+      let city = targetParent.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.innerHTML
+      let province = targetParent.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML
+      let date = targetParent.firstElementChild.innerText
+      console.log(src, text, city, province, date)
+      let array = [src, text, city, province, date]
+      this.pullData(array)
+    },
+    setVal (ev) {
+      let target = ev.target
+      let nodeList = ev.target.nextElementSibling
+      console.log(target)
+      console.log(nodeList)
+      let src = target.getAttribute('src')
+      let text = nodeList.firstElementChild.textContent
+      let array = [src, text, '杭州市', '浙江省', '2018-01-11-2019-01-01']
+      this.pullData(array)
     }
   }
 }

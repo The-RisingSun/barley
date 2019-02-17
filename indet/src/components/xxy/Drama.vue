@@ -1,5 +1,7 @@
 <template>
   <div id="drama" style="background:#f5f5f5">
+    <Headnav></Headnav>
+    <Headsearch></Headsearch>
     <section class="banner">
       <Tabs></Tabs>
       <Banner></Banner>
@@ -138,7 +140,7 @@
     </section>
     <!--日历-->
     <section class="daily">
-      <Calendar></Calendar>
+      <fullcalendar></fullcalendar>
     </section>
     <section class="cooperation like">
       <Title :title1="obj[3]"></Title>
@@ -151,6 +153,7 @@
         </div>
       </div>
     </section>
+    <Footer></Footer>
   </div>
 </template>
 <script>
@@ -158,7 +161,10 @@ import Tabs from './Tabs'
 import Banner from './Banner'
 import Title from './Title'
 import BigImg from './BigImg'
-import Calendar from '@/components/dmCalendar/Calendar'
+import fullcalendar from 'vue-fullcalendar'
+import Headnav from '../ljd/Headnav'
+import Headsearch from '../ljd/Headsearch'
+import Footer from '../ljd/Footer'
 import $ from 'jquery'
 let obj = ['猜你喜欢', '精彩聚集', '热门排行', '合作方']
 let manyImg = ['../../../static/xxy-img/hz3.png', '../../../static/xxy-img/hz2.png',
@@ -172,7 +178,7 @@ let muchImg = [
 export default {
   name: 'Drama',
   components: {
-    Banner, Tabs, Title, BigImg, Calendar
+    Banner, Tabs, Title, BigImg, fullcalendar, Headnav, Headsearch, Footer
   },
   data () {
     return {
@@ -239,7 +245,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style lang="less" scoped>
   @import "~@/assets/less/public.less";
  /* public */
   .banner {
@@ -502,8 +508,34 @@ export default {
   .daily{
     width: 1200px;
     margin: 0 auto 20px;
-    height: 1020px;
-    border: 1px solid red;
+    /deep/ .comp-full-calendar{
+      max-width: none;
+      margin-bottom: 20px;
+      width: 1200px;
+      padding:20px 0px;
+      background:#eaeaea url('../../../static/xxy-img/calendarTitle.png') no-repeat;
+      background-size: 1200px 150px;
+      /deep/ .full-calendar-header{
+        width: 100%;
+        height: 120px;
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 24px;
+        transform: translateY(-40px);
+        .title,
+        .next-month,
+        .prev-month {
+          font-weight: normal;
+          color:#fff;
+          line-height: 200px;
+          cursor: pointer;
+        }
+        .title{
+          display: inline-block;
+          width: 200px;
+        }
+      }
+    }
   }
   // cooperation
   .cooperation{
