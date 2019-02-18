@@ -30,7 +30,7 @@
 </template>
 <script>
 export default {
-  name: 'Calendar',
+  name: 'Calendar1',
   data () {
     return {
       weekName: ['SUNDAY 日', 'MONDAY 一', 'TUESDAY 二', 'WEDNESDAY 三', 'THURSDAY 四', 'FRIDAY 五', 'SATURDAY 六'],
