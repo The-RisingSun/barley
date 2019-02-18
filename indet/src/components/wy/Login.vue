@@ -89,6 +89,10 @@ export default {
       } else {
         this.tisi = null
       }
+      // 是否加载密码
+      // if(JSON.parse(localStorage.getItem(this.name)).mo === 1 && JSON.parse(localStorage.getItem(this.name)).Uase === this.name) {
+      //   this.passWord = JSON.parse(localStorage.getItem(this.name)).pass
+      // }
     },
     verify () {
       var re = /^[0-9]{4}$/
@@ -134,10 +138,19 @@ export default {
         this.tisi = '手机号码有误，请重填'
         return false
       }
-      if (localStorage.getItem(this.name) === null) {
-        console.log(0)
+      if (localStorage.getItem(this.name) === null) { // 判断用户
         this.$message('没有当前用户请注册')
+      } else if (parseInt(JSON.parse(localStorage.getItem(this.name)).pass) !== parseInt(this.passWord)) {
+        this.$message('密码不正确，请重试')
       } else {
+        if (this.checked) {
+          // var most = JSON.parse(localStorage.getItem(this.name))  是否加载密码
+          // most.mo = 1
+          // most = JSON.stringify(most)
+          // console.log(most)
+          // localStorage.setItem(this.name, most)
+          localStorage.setItem('mo', this.name)
+        }
         this.$router.push({path: '/home'})
       }
     },

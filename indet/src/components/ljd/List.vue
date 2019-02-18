@@ -46,7 +46,7 @@
                 :key="v"
                 v-for="(item, v) in cssFont"
                 @click="tab(v)"
-                :class="[v === thisindex3 ? 'active2': '']">
+                :class="[v === thisIndex3 ? 'active2': '']">
                 <span :class="item.typeFont"></span>
               </div>
             </div>
@@ -119,7 +119,8 @@ export default {
         {typeFont: 'fa fa-bars'},
         {typeFont: 'fa fa-windows'}
       ],
-      thisindex3: 0,
+      thisIndex3: 0,
+      aabbcc: 0,
       // *****
       activeOk: 0,
       detailLists: [
@@ -235,7 +236,7 @@ export default {
     },
     tab (v) {
       this.thisIndex3 = v
-      console.log(this.thisIndex3)
+      // console.log(this.thisIndex3)
     }
   },
   created () {

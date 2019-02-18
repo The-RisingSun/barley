@@ -1,11 +1,11 @@
 <template>
   <div id="headnav">
     <div class="txtleft">
-      <span>HI , 欢迎来到大麦 [<router-link to="/login"> 登录</router-link> <router-link  to="/login">注册 </router-link>]</span>
+      <span>HI , 欢迎来到大麦 [<router-link to="/login"> 登录</router-link> <router-link  to="/registered">注册 </router-link>]</span>
       <p>&nbsp;&nbsp;我的大麦 <i class="fa fa-angle-down fa-lg"></i></p>
       <ul>
-        <li>个人信息</li>
-        <li>订单管理</li>
+        <li @click="one">个人信息</li>
+        <li @click="two">订单管理</li>
       </ul>
     </div>
     <div class="txtright">
@@ -74,8 +74,26 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'Headnav'
+  name: 'Headnav',
+  computed: {
+    ...mapState(['num'])
+  },
+  methods: {
+    one () {
+      this.num = this.id
+      this.$router.push({path: '/Personal/PersonInfo', name: 'PersonInfo', params: {id: 2, pag: 2}})
+    },
+    two () {
+      this.num = this.id
+      this.$router.push({path: '/Personal/PersonTicket', name: 'PersonTicket', params: {id: 3, pag: 2}})
+    }
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.id = this.$route.params.id
+    next()
+  }
 }
 </script>
 

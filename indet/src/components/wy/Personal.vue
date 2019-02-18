@@ -7,7 +7,7 @@
         <el-col class="show" :span="120" >
           <h5>大麦</h5>
           <el-menu
-                  default-active=index
+                  default-active=inde
                   class="el-menu-vertical-demo"
                   @open="handleOpen"
                   @close="handleClose"
@@ -38,7 +38,7 @@
 import Headnav from '../ljd/Headnav'
 import Headsearch from '../ljd/Headsearch'
 import Footer from '../ljd/Footer'
-import { mapMutations, mapState } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Personal',
   data () {
@@ -50,12 +50,19 @@ export default {
       active: 'active'
     }
   },
-  computed: {
-    ...mapState(['num'])
-  },
-  created () {
-    this.index = this.num
-    console.log(this.index)
+  watch: {
+    $route (to, from) {
+      console.log(to.path === '/personal/PersonInfo/2')
+      if (to.path === '/personal/PersonInfo/2') {
+        console.log(222)
+        this.index = 2
+      } else if (to.path === '/personal/PersonTicket/3') {
+        this.index = 3
+      } else {
+        this.index = 1
+      }
+      console.log(from.path)
+    }
   },
   components: {
     Headnav,
@@ -73,7 +80,7 @@ export default {
     PersonInfo (cen, i) {
       this.index = i
       this.setScroll(cen)
-      this.$router.push({path: '/Personal/PersonInfo'})
+      this.$router.push({path: '/Personal/PersonInfo', name: 'PersonInfo'})
     },
     PersonOrder (cen, i) {
       this.index = i
@@ -83,7 +90,7 @@ export default {
     PersonTicket (cen, i) {
       this.index = i
       this.setScroll(cen)
-      this.$router.push({path: '/Personal/PersonTicket'})
+      this.$router.push({path: '/Personal/PersonTicket', name: 'PersonTicket'})
     }
   }
 }

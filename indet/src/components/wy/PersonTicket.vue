@@ -97,7 +97,7 @@ export default {
 </script>
 
 <style lang="less">
-.el-table_1_column_5, .el-table_1_column_1   {
+.el-table_1_column_5, .el-table_1_column_1 {
   text-align: center!important;
 }
 #ticket{

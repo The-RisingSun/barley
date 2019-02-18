@@ -18,7 +18,6 @@ import Personal from '@/components/wy/Personal'
 import PersonOrder from '@/components/wy/PersonOrder' // 订单管理
 import PersonInfo from '@/components/wy/PersonInfo' // 个人信息
 import PersonTicket from '@/components/wy/PersonTicket' // 常用购票人
-import Headcomp from '@/components/xxy/test/Headcomp' // 简单的测试组件
 import Footer from '@/components/wy/Footer'
 import NewList from '@/components/wy/NewList'
 Vue.use(Router)
@@ -50,6 +49,16 @@ export default new Router({
       component: Dance
     },
     {
+      path: '/home',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/children',
+      name: 'Children',
+      component: Children
+    },
+    {
       path: '/login',
       name: 'Login',
       component: Login
@@ -68,19 +77,23 @@ export default new Router({
         component: PersonOrder
       },
       {
-        path: 'PersonInfo',
+        path: 'PersonInfo/:id',
         name: 'PersonInfo',
-        component: PersonInfo
+        component: PersonInfo,
+        params: {id: 2, pag: 2}
       },
       {
         path: 'NewList',
         name: 'NewList',
         component: NewList
+
       },
       {
-        path: 'PersonTicket',
+        path: 'PersonTicket/:id',
         name: 'PersonTicket',
-        component: PersonTicket
+        component: PersonTicket,
+        pparams: {id: 2, pag: 2}
+
       }]
     },
     {
@@ -114,14 +127,10 @@ export default new Router({
       component: Detail
     },
     {
-      path: '/headcomp',
-      name: 'Headcomp',
-      component: Headcomp
-    },
-    {
       path: '/Footer',
       name: 'Footer',
       component: Footer
     }
-  ]
+  ],
+  mode: 'history'
 })

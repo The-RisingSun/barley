@@ -2,7 +2,7 @@
   <div class="block">
     <el-carousel trigger="click" :interval=0 height="420">
       <el-carousel-item v-for="item in data" :key="item">
-        <img v-bind:src="item" width="1200" style="margin:0 auto" height="420">
+        <img v-bind:src="item" width="1200" style="margin:0 auto;transform: translateX(20px)" height="420">
       </el-carousel-item>
     </el-carousel>
   </div>

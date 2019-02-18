@@ -32,13 +32,22 @@
           <div class="choosetime">
             <p>演出时间 :</p>
             <ul>
-              <li @click="change(index)" v-for="(item, index) in items" :key="index" :class="{'active1': index === thisIndex}">{{item.list}}</li>
+              <li
+                @click="change(index)"
+                v-for="(item, index) in items"
+                :key="index"
+                :class="{'active1': index === thisIndex}"
+              >{{item.list}}</li>
             </ul>
           </div>
           <div class="chooseprice">
             <p>选择票价 :</p>
             <ul>
-              <li class="active2">80元</li>
+              <li
+                class="active2"
+                v-for="(item, index) in priceList"
+                :key="index"
+              >{{item.price}}元</li>
             </ul>
           </div>
           <div class="chooseseat">
@@ -85,83 +94,187 @@
             v-for="(item, index) in items2"
             :key="index">{{item.list2}}</li>
         </ul>
-        <div class="tit">
-          <h3>基本信息</h3>
-          <span></span>
-        </div>
-        <div class="table">
-          <ul>
-            <li>演出时间</li>
-            <li>2018.01.06-01.14</li>
-            <li>演出场馆</li>
-            <li>光华路大大大</li>
-          </ul>
-          <ul>
-            <li>演出时间</li>
-            <li>2018.01.06-01.14</li>
-            <li>演出场馆</li>
-            <li>
-              <p>光华路大大大</p>
-              <p>光华路大大大</p>
-              <p>光华路大大大</p>
-              <p>光华路大大大</p>
-              <p>光华路大大大</p>
-              <p>光华路大大大</p>
-            </li>
-          </ul>
-        </div>
-        <div class="tit">
-          <h3>项目介绍</h3>
-          <span></span>
-        </div>
-        <div class="textgroup">
-          <h3>英文站入口</h3>
-          <p>英文站购买地址 : https://en.dami.com</p>
-          <h3>演出介绍</h3>
-          <p>世界大萨达撒多</p>
-          <p>阿斯德大萨达</p>
-          <p>大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家</p>
-          <div  class="img">
-            <img src="/static/img/detail.jpg" alt="">
+        <div class="tabDiv" v-if="activeOk == 0">
+          <div class="tit">
+            <h3>基本信息</h3>
+            <span></span>
           </div>
-          <p>世界大萨达撒多世界大萨达撒多</p>
-          <p>世界大萨达撒多世界大萨达撒多</p>
-          <p>世界大萨达撒多世界大萨达撒多</p>
-        </div>
-        <div class="tit">
-          <h3>写剧评</h3>
-          <span></span>
-        </div>
-        <div class="chosscore">
-          <p>打个分吧: <el-rate style="display: inline-block" v-model="score"></el-rate></p>
-          <textarea v-model="scoreText"></textarea>
-          <button @click="scoreClick()">评价</button>
-        </div>
-        <div class="commentlist" v-if="scoreList.length <= 0">
-          暂无评价…………
-        </div>
-        <div class="commentlist" v-else
-             v-for="(item, index) in scoreList"
-             :key="index"
-        >
-          <div class="user">
-            <img src="/static/img/detail.jpg" alt="">
-            12
+          <div class="table">
+            <ul>
+              <li>演出时间</li>
+              <li>2018.01.06-01.14</li>
+              <li>演出场馆</li>
+              <li>光华路大大大</li>
+            </ul>
+            <ul>
+              <li>演出时间</li>
+              <li>2018.01.06-01.14</li>
+              <li>演出场馆</li>
+              <li>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+              </li>
+            </ul>
           </div>
-          <div class="comment">
-            <p>{{item.scoreText}}</p>
-            <p>评分：<el-rate
-              style="display: inline-block"
-              v-model="item.score"
-              disabled
-              show-score
-              text-color="#ff9900"
-              score-template="{value}">
-            </el-rate> 分 &nbsp;&nbsp; 评论时间：<span>{{item.nowTime}}</span></p>
+          <div class="textgroup">
+            <h3>英文站入口</h3>
+            <p>英文站购买地址 : https://en.dami.com</p>
+            <h3>演出介绍</h3>
+            <p>世界大萨达撒多</p>
+            <p>阿斯德大萨达</p>
+            <p>大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家</p>
+            <div  class="img">
+              <img src="/static/img/detail.jpg" alt="">
+            </div>
+            <p>世界大萨达撒多世界大萨达撒多</p>
+            <p>世界大萨达撒多世界大萨达撒多</p>
+            <p>世界大萨达撒多世界大萨达撒多</p>
+          </div>
+          <div class="tit">
+            <h3>写剧评</h3>
+            <span></span>
+          </div>
+          <div class="chosscore">
+            <p>打个分吧: <el-rate style="display: inline-block" v-model="score"></el-rate></p>
+            <textarea v-model="scoreText"></textarea>
+            <button @click="scoreClick()">评价</button>
+          </div>
+          <div class="commentlist" v-if="scoreList.length <= 0">
+            暂无评价…………
+          </div>
+          <div class="commentlist" v-else
+               v-for="(item, index) in scoreList"
+               :key="index"
+          >
+            <div class="user">
+              <img src="/static/img/detail.jpg" alt="">
+              12
+            </div>
+            <div class="comment">
+              <p>{{item.scoreText}}</p>
+              <p>评分：<el-rate
+                style="display: inline-block"
+                v-model="item.score"
+                disabled
+                show-score
+                text-color="#ff9900"
+                score-template="{value}">
+              </el-rate> 分 &nbsp;&nbsp; 评论时间：<span>{{item.nowTime}}</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="tabDiv" v-if="activeOk == 1">
+          <div class="tit">
+            <h3>写剧评</h3>
+            <span></span>
+          </div>
+          <div class="chosscore">
+            <p>打个分吧: <el-rate style="display: inline-block" v-model="score"></el-rate></p>
+            <textarea v-model="scoreText"></textarea>
+            <button @click="scoreClick()">评价</button>
+          </div>
+          <div class="commentlist" v-if="scoreList.length <= 0">
+            暂无评价…………
+          </div>
+          <div class="commentlist" v-else
+               v-for="(item, index) in scoreList"
+               :key="index"
+          >
+            <div class="user">
+              <img src="/static/img/detail.jpg" alt="">
+              12
+            </div>
+            <div class="comment">
+              <p>{{item.scoreText}}</p>
+              <p>评分：<el-rate
+                style="display: inline-block"
+                v-model="item.score"
+                disabled
+                show-score
+                text-color="#ff9900"
+                score-template="{value}">
+              </el-rate> 分 &nbsp;&nbsp; 评论时间：<span>{{item.nowTime}}</span></p>
+            </div>
+          </div>
+          <div class="tit">
+            <h3>基本信息</h3>
+            <span></span>
+          </div>
+          <div class="table">
+            <ul>
+              <li>演出时间</li>
+              <li>2018.01.06-01.14</li>
+              <li>演出场馆</li>
+              <li>光华路大大大</li>
+            </ul>
+            <ul>
+              <li>演出时间</li>
+              <li>2018.01.06-01.14</li>
+              <li>演出场馆</li>
+              <li>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tabDiv" v-if="activeOk == 2">
+          <div class="tit">
+            <h3>项目介绍</h3>
+            <span></span>
+          </div>
+          <div class="textgroup">
+            <h3>英文站入口</h3>
+            <p>英文站购买地址 : https://en.dami.com</p>
+            <h3>演出介绍</h3>
+            <p>世界大萨达撒多</p>
+            <p>阿斯德大萨达</p>
+            <p>大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家大神大神解答时间冻结阿萨德会撒谎的三大合适的话撒谎的委屈回家可委屈额外加强客户家</p>
+            <div  class="img">
+              <img src="/static/img/detail.jpg" alt="">
+            </div>
+            <p>世界大萨达撒多世界大萨达撒多</p>
+            <p>世界大萨达撒多世界大萨达撒多</p>
+            <p>世界大萨达撒多世界大萨达撒多</p>
+          </div>
+        </div>
+        <div class="tabDiv" v-if="activeOk == 3">
+          <div class="tit">
+            <h3>基本信息</h3>
+            <span></span>
+          </div>
+          <div class="table">
+            <ul>
+              <li>演出时间</li>
+              <li>2018.01.06-01.14</li>
+              <li>演出场馆</li>
+              <li>光华路大大大</li>
+            </ul>
+            <ul>
+              <li>演出时间</li>
+              <li>2018.01.06-01.14</li>
+              <li>演出场馆</li>
+              <li>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+                <p>光华路大大大</p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="detailright">
+      <div v-if="activeOk !== 1 || 2 || 3" class="detailright">
         <h3>热门推荐</h3>
         <img src="/static/img/detail.jpg" alt="">
         <p class="ti">大型多媒体励志互动儿童剧《奇门遁甲》(11月)</p>
@@ -186,7 +299,7 @@
           <p>2017年12月31日</p>
         </div>
       </div>
-      <div class="detailrigbottom">
+      <div v-if="activeOk !== 1 || 2 || 3" class="detailrigbottom">
         <h3>浏览历史</h3>
         <p>大型多媒体励志互动儿童剧《奇门遁甲》(11月)</p>
         <p>大型多媒体励志互动儿童剧《奇门遁甲》(11月)</p>
@@ -215,6 +328,10 @@ export default {
   },
   data () {
     return {
+      priceList: [
+        {price: 80}
+      ],
+      price: 80, // 选择票价
       activeOk: 0,
       scoreList: [],
       nowTime: '',
@@ -245,6 +362,29 @@ export default {
     },
     change (self) {
       this.thisIndex = self
+      if (self === 0) {
+        this.priceList = [
+          {price: 80}
+        ]
+      } else if (self === 1) {
+        this.priceList = [
+          {price: 80},
+          {price: 180},
+          {price: 280}
+        ]
+      } else if (self === 2) {
+        this.priceList = [
+          {price: 30},
+          {price: 140},
+          {price: 70}
+        ]
+      } else if (self === 3) {
+        this.priceList = [
+          {price: 480},
+          {price: 680},
+          {price: 880}
+        ]
+      }
     },
     scoreClick () {
       if (this.score === '' || this.scoreText === '') {
@@ -269,7 +409,22 @@ export default {
             nowTime: this.nowTime
           }
         ]
-        this.scoreList = [...this.scoreList, ...newArrar]
+        /*
+        *   1。ES6 拓展运算符 第一种
+        * */
+        this.scoreList = [...newArrar, ...this.scoreList]
+        /*
+        * 2。查找原型来unshift数组 这是ES5 第二种
+        * */
+        // Array.prototype.unshift.apply(this.scoreList, newArrar)
+        /*
+        * 3。这种相对来说最麻烦 还得需要二维数组-> 一维数组   第3种
+        * */
+        // this.scoreList.unshift(newArrar)
+        // var arr2 = this.scoreList.reduce(function (a, b) { return a.concat(b) })
+        // this.scoreList = arr2
+        // 还有啥上面那个选项卡设计图没给我 所以复制几个内容就行了看得懂不 哈哈
+        // 就是 点刚才那个Tab 还要切换下 下面的 内容是的 就多复制几个不一样的就行 有效果就行
         this.score = ''
         this.scoreText = ''
         this.nowTime = ''
