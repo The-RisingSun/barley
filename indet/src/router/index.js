@@ -74,7 +74,7 @@ export default new Router({
       component: Registered
     },
     {
-      path: '/personal',
+      path: '/Personal',
       component: Personal,
       children: [{
         path: '',
@@ -103,7 +103,7 @@ export default new Router({
       component: Chooseseat
     },
     {
-      path: '/Orderconfirm',
+      path: '/',
       name: 'Orderconfirm',
       component: Orderconfirm
     },
@@ -113,7 +113,7 @@ export default new Router({
       component: Payorder
     },
     {
-      path: '/',
+      path: '/Paypage',
       name: 'Paypage',
       component: Paypage
     },

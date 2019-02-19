@@ -32,13 +32,22 @@
       </div>
       <div class="goodlist">
         <h3>商品清单</h3>
-        <ul class="list-title">
-          <li>商品名称</li>
-          <li>座位号</li>
-          <li>价格</li>
-          <li>数量</li>
-          <li>价格小计(元)</li>
-        </ul>
+        <table border="1" class="list-title">
+          <tr>
+            <th>商品名称</th>
+            <th>座位号</th>
+            <th>价格</th>
+            <th>数量</th>
+            <th>价格小计</th>
+          </tr>
+          <tr  v-for="(item, index) in information" :key="index">
+          <td>{{item.csentence}}</td>
+          <td>{{item.integer}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.intege}}</td>
+          <td>{{item.status}}</td>
+          </tr>
+        </table>
       </div>
       <div class="tickets">
         <h3>我要开发票</h3>
@@ -102,7 +111,7 @@
           </div>
           <p class="pay-detail">我已阅读并同意<strong>"订购服务条款"</strong><strong>"退换货约定"</strong><strong>"退款约定"</strong></p>
           <p>同意"票品为不记名凭证，请您妥善保管，遗失不补"</p>
-          <button :class="{active}">同意以上协议并提交订单</button>
+          <button @click="payactive" :class="{active:buttonindex==2}">同意以上协议并提交订单</button>
         </div>
       </div>
     </div>
@@ -128,13 +137,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Headnav from '@/components/ljd/Headnav'
 import Footer from '@/components/wy/Footer'
-
 export default {
   name: 'Orderconfirm',
   data () {
     return {
+      tableData3: [],
       isshow: false,
       newshow: false,
       index: 0,
@@ -143,8 +153,15 @@ export default {
         {'title': '个人'}
       ],
       checkif: true,
-      payif: true
+      payif: true,
+      buttonindex: 1
     }
+  },
+  computed: {
+    ...mapState(['information'])
+  },
+  created () {
+    this.tableData3 = this.information
   },
   methods: {
     closepopup () {
@@ -172,8 +189,19 @@ export default {
     paybtn () {
       if (this.payif) {
         this.payif = false
+        this.buttonindex = 2
       } else {
         this.payif = true
+        this.buttonindex = 1
+      }
+    },
+    payactive () {
+      if (this.payif) {
+        var Datastr = JSON.stringify(this.tableData3)
+        localStorage.setItem('localData', Datastr)
+        this.$router.push({path: '/Payorder'})
+      } else if (!this.payif) {
+        alert('需要勾选确定')
       }
     }
   },
@@ -318,12 +346,10 @@ export default {
         }
 
         .list-title {
-          overflow: hidden;
-          background: #f8f8f9;
           border: 1px solid #000;
-
-          li {
-            width: 238px;
+          th {
+            background: #f8f8f9;
+            width: 235px;
             height: 40px;
             line-height: 40px;
             float: left;
@@ -332,9 +358,15 @@ export default {
             text-indent: 15px;
             border-right: 1px solid #000;
           }
-
-          li:last-of-type {
-            border: none;
+          td {
+            width: 235px;
+            height: 40px;
+            line-height: 40px;
+            float: left;
+            font-size: 12px;
+            color: #495060;
+            text-align: center;
+            border-right: 1px solid #000;
           }
         }
       }
@@ -558,10 +590,11 @@ export default {
           padding: 10px 15px;
           border-radius: 4px;
           border: none;
-
-          &:hover {
-            cursor: pointer;
-          }
+          cursor: pointer;
+        }
+        .active{
+          background: grey;
+          cursor: no-drop;
         }
       }
     }

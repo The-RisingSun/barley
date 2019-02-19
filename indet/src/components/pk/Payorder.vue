@@ -19,12 +19,20 @@
         </li>
       </ul>
       <div class="order-detail-wrap">
-        <ul class="order-detail">
-          <li>订单编号</li>
-          <li>商品名称</li>
-          <li>订单金额</li>
-          <li>应付金额</li>
-        </ul>
+        <table border="1" class="order-detail">
+          <tr>
+            <th>订单编号</th>
+            <th>商品名称</th>
+            <th>订单金额</th>
+            <th>应付金额</th>
+          </tr>
+          <tr v-for="(item, index) in getData1" :key="index">
+            <td>{{item.integer}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.intege}}</td>
+            <td>{{item.status}}</td>
+          </tr>
+        </table>
         <p class="shouldpay">应付总金额<span>  84.71</span>元</p>
         <p class="pay-intro">以下支付平台都支持大多数银行卡</p>
         <template class="radio-group">
@@ -44,13 +52,22 @@ import Footer from '@/components/wy/Footer'
 export default {
   data () {
     return {
-      radio: '1'
+      radio: '1',
+      getData1: []
     }
   },
   name: 'Payorder',
   components: {
     Headnav,
     Footer
+  },
+  methods: {
+    getlist () {
+      this.getData1 = JSON.parse(localStorage.getItem('localData'))
+    }
+  },
+  created () {
+    this.getlist()
   }
 }
 </script>
@@ -121,12 +138,11 @@ export default {
     }
     .order-detail {
       overflow: hidden;
-      background: #f8f8f9;
       border: 1px solid #000;
       margin-top: 20px;
-
-      li {
-        width: 297px;
+      th {
+        background: #f8f8f9;
+        width: 292px;
         height: 40px;
         line-height: 40px;
         float: left;
@@ -135,9 +151,15 @@ export default {
         text-indent: 15px;
         border-right: 1px solid #000;
       }
-
-      li:last-of-type {
-        border: none;
+      td {
+        width: 292px;
+        height: 40px;
+        line-height: 40px;
+        float: left;
+        font-size: 12px;
+        color: #495060;
+        text-align: center;
+        border-right: 1px solid #000;
       }
     }
     .shouldpay{

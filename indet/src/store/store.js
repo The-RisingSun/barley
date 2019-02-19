@@ -7,28 +7,28 @@ var store = new Vuex.Store({
     information: [{
       id: '130000200102099538',
       datetime: '2001-06-02 02:54:24',
-      csentence: '温他律再动状各白个接风更速装四器。',
-      intege: 566,
-      integer: 566,
-      price: 1,
+      csentence: '大型多媒体励志互动儿童剧。',
+      intege: 1,
+      integer: '6排3座',
+      price: 100,
       status: '待支付'
     },
     {
       id: '330000200712225156',
       datetime: '1990-07-31 05:10:06',
-      csentence: '先划果具报民段自图清满算石。',
-      intege: 566,
-      integer: 566,
-      price: 1,
+      csentence: '大型多媒体励志互动儿童剧。',
+      intege: 1,
+      integer: '6排1座',
+      price: 100,
       status: '待支付'
     },
     {
       id: '650000199412233217',
       datetime: '1999-07-31 09:31:22',
-      csentence: '反都争美没七难构规才议类更日办了。',
-      intege: 566,
-      integer: 566,
-      price: 1,
+      csentence: '大型多媒体励志互动儿童剧。',
+      intege: 1,
+      integer: '6排2座',
+      price: 100,
       status: '待支付'
     }]
   },
@@ -38,6 +38,9 @@ var store = new Vuex.Store({
     },
     pull (state, val) {
       state.saveName.pull(state)
+    },
+    order (state, val) {
+      state.information.push(val)
     }
   }
 })
