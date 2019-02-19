@@ -99,7 +99,10 @@ export default {
       this.username()
       this.Hintverify()
       if (this.sum === true) {
-        localStorage.setItem(this.name, this.password)
+        var ar = {Uase: this.name, pass: this.password}
+        ar = JSON.stringify(ar)
+        localStorage.setItem(this.name, ar)
+        this.$router.push({path: '/login'})
       }
     },
     second () { // 验证倒计时

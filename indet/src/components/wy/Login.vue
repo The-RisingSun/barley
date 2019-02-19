@@ -9,7 +9,7 @@
             {{item}}
           </li>
         </ul>
-        <div class="smu">
+        <div v-if="this.indet === 0" class="smu">
           <form id="1" class="center" action="">
             <p>
               <span class="fa fa-user"></span>
@@ -34,6 +34,21 @@
             </div>
           </form>
         </div>
+        <div v-if="this.indet === 1" class="smu">
+          <form id="2" class="center" action="">
+            <p>
+              <span class="fa fa-mobile"></span>
+              <input v-model="name" @blur="username" type="text" value="">
+            </p>
+            <span>{{this.tisi}}</span>
+            <p>
+              <input id="sunber" @blur="verify" v-model="yard" maxlength="10" type="text" value="" placeholder="请输入4位数字验证码"/>
+              <input @click="countDown" type="button" id="btn" v-model="btn">
+            </p>
+            <span>{{this.verification}}</span>
+            <input @click="mobileLogin" type="submit" value="登录">
+          </form>
+        </div>
       </div>
     </div>
     <Footer></Footer>
@@ -53,7 +68,13 @@ export default {
       pass: null,
       checked: true,
       off: true,
-      indet: 0
+      indet: 0,
+      btn: '获取验证码',
+      verification: null,
+      mobile: null,
+      yard: null, // 验证码
+      it: 60,
+      time: null // 时间
     }
   },
   components: {
@@ -68,6 +89,18 @@ export default {
       } else {
         this.tisi = null
       }
+      // 是否加载密码
+      // if(JSON.parse(localStorage.getItem(this.name)).mo === 1 && JSON.parse(localStorage.getItem(this.name)).Uase === this.name) {
+      //   this.passWord = JSON.parse(localStorage.getItem(this.name)).pass
+      // }
+    },
+    verify () {
+      var re = /^[0-9]{4}$/
+      if (!re.test(this.yard)) {
+        this.verification = '验证码有误，请重填'
+      } else {
+        this.verification = null
+      }
     },
     password () {
       var re = /^[a-zA-Z0-9]{6,22}$/
@@ -76,6 +109,20 @@ export default {
       } else {
         this.pass = null
       }
+    },
+    countDown () {
+      let _this = this
+      this.time = setInterval(function () {
+        _this.it--
+        console.log(_this.it)
+        if (_this.it <= 0) {
+          _this.btn = '重新获取验证码'
+          _this.it = 60
+          clearInterval(_this.time)
+        } else {
+          _this.btn = _this.it + '秒'
+        }
+      }, 1000)
     },
     witch (en) {
       this.indet = en
@@ -91,8 +138,28 @@ export default {
         this.tisi = '手机号码有误，请重填'
         return false
       }
-      if (localStorage.getItem(this.name) === null) {
+      if (localStorage.getItem(this.name) === null) { // 判断用户
         this.$message('没有当前用户请注册')
+      } else if (parseInt(JSON.parse(localStorage.getItem(this.name)).pass) !== parseInt(this.passWord)) {
+        this.$message('密码不正确，请重试')
+      } else {
+        if (this.checked) {
+          // var most = JSON.parse(localStorage.getItem(this.name))  是否加载密码
+          // most.mo = 1
+          // most = JSON.stringify(most)
+          // console.log(most)
+          // localStorage.setItem(this.name, most)
+          localStorage.setItem('mo', this.name)
+        }
+        this.$router.push({path: '/home'})
+      }
+    },
+    mobileLogin () {
+      console.log(localStorage.getItem(this.name))
+      if (localStorage.getItem(this.name) === null || this.tisi === null || this.yard === null) {
+        this.$message('输入不完整')
+      } else {
+        this.$router.push({path: '/home'})
       }
     }
   }
@@ -131,6 +198,7 @@ export default {
         margin-right: 4px;
         border-radius: 4px 4px 0  0 ;
         border: 1px solid #dddee1;
+        cursor: pointer;
         &.active{
           color: #ff5235;
           background: #fff;
@@ -168,6 +236,11 @@ export default {
             height: 32px;
             width: 380px;
             border: none;
+          }
+          #btn{
+            width: 120px;
+            height: 34px;
+            background: #ccc;
           }
         }
         .from-bottom{

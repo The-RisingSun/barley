@@ -7,7 +7,7 @@
         <el-col class="show" :span="120" >
           <h5>大麦</h5>
           <el-menu
-                  default-active="1"
+                  default-active=inde
                   class="el-menu-vertical-demo"
                   @open="handleOpen"
                   @close="handleClose"
@@ -50,6 +50,20 @@ export default {
       active: 'active'
     }
   },
+  watch: {
+    $route (to, from) {
+      console.log(to.path === '/personal/PersonInfo/2')
+      if (to.path === '/personal/PersonInfo/2') {
+        console.log(222)
+        this.index = 2
+      } else if (to.path === '/personal/PersonTicket/3') {
+        this.index = 3
+      } else {
+        this.index = 1
+      }
+      console.log(from.path)
+    }
+  },
   components: {
     Headnav,
     Headsearch,
@@ -66,7 +80,7 @@ export default {
     PersonInfo (cen, i) {
       this.index = i
       this.setScroll(cen)
-      this.$router.push({path: '/Personal/PersonInfo'})
+      this.$router.push({path: '/Personal/PersonInfo', name: 'PersonInfo'})
     },
     PersonOrder (cen, i) {
       this.index = i
@@ -76,7 +90,7 @@ export default {
     PersonTicket (cen, i) {
       this.index = i
       this.setScroll(cen)
-      this.$router.push({path: '/Personal/PersonTicket'})
+      this.$router.push({path: '/Personal/PersonTicket', name: 'PersonTicket'})
     }
   }
 }
@@ -90,7 +104,7 @@ export default {
   }
   .box{
     width: 1200px;
-    height: 374px;
+    -height: 374px;
     margin: 20px auto;
     background: #fff;
     overflow: hidden;
